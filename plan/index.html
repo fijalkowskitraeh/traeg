@@ -90,6 +90,19 @@ button.rulesbtn{background:var(--chip);border-color:var(--line);color:var(--ink)
 .cbox{height:100%;max-height:860px}
 .cstage{position:relative;flex:1 1 50%;min-height:200px;background:radial-gradient(ellipse at 50% 70%,#2A2246,#0E0B18 70%)}
 .cstage canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
+/* shared Awakening overlays over the 3D stage: vignette, colour flash, title card (pointer-events off, under the stage buttons) */
+.awkfx{position:absolute;inset:0;pointer-events:none;opacity:0}
+.awkvig{background:radial-gradient(ellipse at 50% 58%,rgba(6,4,16,0) 26%,rgba(6,4,16,.94) 100%)}
+.awkflash{mix-blend-mode:screen}
+.awkcard{position:absolute;left:50%;top:9%;pointer-events:none;text-align:center;color:#fff;opacity:0;white-space:nowrap;isolation:isolate;--rc:#8FA3B8;--s:1;--g:0;--band:0;transform:translateX(-50%)}
+.awkcard::before{content:"";position:absolute;z-index:-1;left:-30%;right:-30%;top:22%;bottom:12%;background:linear-gradient(90deg,transparent,var(--rc) 30%,var(--rc) 70%,transparent);opacity:var(--band);transform:skewX(-16deg)}
+.awkcard i{display:block;font:800 calc(10px*var(--s)) Nunito,sans-serif;font-style:normal;letter-spacing:.45em;margin-right:-.45em;color:#fff;text-shadow:0 0 6px var(--rc),0 1px 2px rgba(0,0,0,.9)}
+.awkcard b{display:block;font:400 calc(30px*var(--s)) "Lilita One",Nunito,sans-serif;letter-spacing:.03em;line-height:1.05;color:var(--rc);color:color-mix(in srgb,var(--rc) 78%,#fff);text-shadow:0 0 calc(18px*var(--g)) var(--rc),0 2px 0 rgba(0,0,0,.6),0 0 2px rgba(0,0,0,.8)}
+.awkcard span{display:inline-block;margin-top:3px;font:800 calc(10.5px*var(--s)) Nunito,sans-serif;letter-spacing:.05em;padding:2px 9px;border-radius:999px;background:var(--rc);color:#120D1E}
+.awkcard.go{animation:awkIn 1.4s cubic-bezier(.2,.9,.3,1) both}
+@keyframes awkIn{0%{opacity:0;transform:translateX(calc(-50% - 70px)) skewX(-14deg)}14%{opacity:1;transform:translateX(-50%) skewX(0)}74%{opacity:1;transform:translateX(-50%)}100%{opacity:0;transform:translateX(calc(-50% + 36px))}}
+@keyframes awkFade{0%,100%{opacity:0}14%,74%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.awkcard.go{animation-name:awkFade}}
 .cnav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;padding:0;font-size:18px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff}
 .cprev{left:10px}.cnext{right:10px}
 .cmode{position:absolute;left:10px;top:10px;color:#fff;font:800 11px Nunito,sans-serif;letter-spacing:.06em;background:rgba(0,0,0,.4);border-radius:999px;padding:4px 10px}.cmode.on{background:#FF4D1F}.cmode.tel{background:#FFC233;color:#3A2600}
@@ -3061,7 +3074,7 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){return;}
     R.setPixelRatio(Math.min(2,devicePixelRatio||1));
     scene=new THREE.Scene();cam=new THREE.PerspectiveCamera(36,1,0.1,100);
-    scene.add(new THREE.HemisphereLight('#FFFFFF','#2A2440',0.9));const d=new THREE.DirectionalLight('#FFFFFF',0.6);d.position.set(3,6,5);scene.add(d);
+    AWK.hemi=new THREE.HemisphereLight('#FFFFFF','#2A2440',0.9);scene.add(AWK.hemi);const d=new THREE.DirectionalLight('#FFFFFF',0.6);d.position.set(3,6,5);scene.add(d);AWK.dir=d;
     light=new THREE.PointLight('#FFFFFF',1.4,10);light.position.set(0,1.6,1.2);scene.add(light);
     const floor=new THREE.Mesh(new THREE.CircleGeometry(3.2,48),new THREE.MeshLambertMaterial({color:'#15111F'}));floor.rotation.x=-Math.PI/2;scene.add(floor);
     disc=new THREE.Mesh(new THREE.CircleGeometry(1.6,40),new THREE.MeshBasicMaterial({transparent:true,opacity:0.35,blending:THREE.AdditiveBlending,depthWrite:false}));disc.rotation.x=-Math.PI/2;disc.position.y=0.01;scene.add(disc);
@@ -3331,6 +3344,28 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     const nBolt=(parent,n,c,th)=>{const mat=NA(c),segs=[];for(let k=0;k<n;k++){const m=new THREE.Mesh(new THREE.BoxGeometry(th||0.06,th||0.06,1),mat);parent.add(m);segs.push(m);}
       return {mat,segs,set(pts){for(let k=0;k<n;k++){const a=pts[Math.min(k,pts.length-2)],b=pts[Math.min(k+1,pts.length-1)],m=segs[k];m.position.copy(a).add(b).multiplyScalar(0.5);m.scale.z=Math.max(0.001,a.distanceTo(b));if(a.distanceToSquared(b)>1e-6)m.lookAt(b);}}};};
 
+    /* ===== shared Awakening presentation: glow texture, flash sprites, shock rings, countdown ring, DOM overlays ===== */
+    {const k=document.createElement('canvas');k.width=k.height=128;const x=k.getContext('2d'),g=x.createRadialGradient(64,64,0,64,64,64);
+     g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(0.22,'rgba(255,255,255,0.8)');g.addColorStop(0.55,'rgba(255,255,255,0.2)');g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.fillRect(0,0,128,128);AWK.glow=new THREE.CanvasTexture(k);}
+    AWK.fl=[0,1,2,3,4,5].map(()=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:AWK.glow,transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending}));s.visible=false;s.renderOrder=5;s.userData={t:9,d:0.2,s0:0.2,s1:4,o:1};scene.add(s);return s;});
+    AWK.rings=[0,1,2].map(()=>{const r=new THREE.Mesh(new THREE.RingGeometry(0.9,1,64,1),NA('#FFFFFF'));r.rotation.x=-Math.PI/2;r.visible=false;r.userData={t:9,d:0.3,R:4};scene.add(r);return r;});
+    /* countdown ring: a RingGeometry drawn partially with setDrawRange (6 indices per segment), over a faint full ring */
+    AWK.cd=new THREE.Mesh(new THREE.RingGeometry(1.24,1.36,64,1),NA('#FFFFFF'));AWK.cd.rotation.x=-Math.PI/2;AWK.cd.visible=false;scene.add(AWK.cd);
+    AWK.cdb=new THREE.Mesh(new THREE.RingGeometry(1.24,1.36,64,1),NA('#FFFFFF'));AWK.cdb.rotation.x=-Math.PI/2;AWK.cdb.visible=false;scene.add(AWK.cdb);
+    {const mk=(cls,html)=>{const d=document.createElement('div');d.className=cls;d.setAttribute('aria-hidden','true');if(html)d.innerHTML=html;cv.parentNode.insertBefore(d,cv.nextSibling);return d;};
+     AWK.card=mk('awkcard','<i>AWAKENING</i><b></b><span></span>');AWK.flash=mk('awkfx awkflash');AWK.vig=mk('awkfx awkvig');AWK.cardN=AWK.card.querySelector('b');AWK.cardW=AWK.card.querySelector('span');}
+    /* flat line work on the ground in one mesh: segs = [[x0,z0,x1,z1,width],...] (quads in list order, so setDrawRange reveals them in order) */
+    const flatQuads=segs=>{const P=new Float32Array(segs.length*12),I=[];segs.forEach(([x0,z0,x1,z1,w],i)=>{const L=Math.hypot(x1-x0,z1-z0)||1,nx=-(z1-z0)/L*w/2,nz=(x1-x0)/L*w/2;
+      P.set([x0+nx,0,z0+nz,x0-nx,0,z0-nz,x1-nx,0,z1-nz,x1+nx,0,z1+nz],i*12);const b=i*4;I.push(b,b+1,b+2,b,b+2,b+3);});
+      const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(P,3));g.setIndex(I);return g;};
+    const dashSegs=(r,n,fill,w,cx,cz)=>{const s=[];for(let i=0;i<n;i++){const a0=i/n*Math.PI*2,a1=a0+fill*Math.PI*2/n;s.push([(cx||0)+Math.cos(a0)*r,(cz||0)+Math.sin(a0)*r,(cx||0)+Math.cos(a1)*r,(cz||0)+Math.sin(a1)*r,w]);}return s;};
+    /* a strip of n sample points (2 vertices each) with vertex colours; additive, so a colour fading to black is a fading tail */
+    const mkRibbon=(parent,n)=>{const g=new THREE.BufferGeometry(),I=[];for(let i=0;i<n-1;i++){const a=i*2;I.push(a,a+1,a+2,a+1,a+3,a+2);}
+      g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(n*6),3));g.setAttribute('color',new THREE.BufferAttribute(new Float32Array(n*6),3));g.setIndex(I);
+      const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({vertexColors:true,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));m.frustumCulled=false;m.visible=false;parent.add(m);return m;};
+    const txtSprite=(s,c,parent,w,h)=>{const k=document.createElement('canvas');k.width=128;k.height=64;const x=k.getContext('2d');x.font='900 42px Arial, sans-serif';x.textAlign='center';x.textBaseline='middle';x.lineWidth=7;x.strokeStyle='rgba(10,20,14,0.75)';x.strokeText(s,64,34);x.fillStyle=c;x.fillText(s,64,34);
+      const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(k),transparent:true,opacity:0,depthWrite:false}));sp.scale.set(w,h,1);sp.visible=false;parent.add(sp);return sp;};
+
     /* ===== fx wolf: eyes, paw prints, ghostly head, moon, howl, pack ===== */
     wlf=new THREE.Group();scene.add(wlf);const WF=wlf.userData;
     WF.eyes=[-1,1].map(s=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(0.15,0.07),NA('#9FE6FF'));m.position.set(s*0.17,2.24,0.366);fig.add(m);return m;});
@@ -3462,6 +3497,52 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     cv.addEventListener('pointerup',()=>drag=null);cv.addEventListener('pointercancel',()=>drag=null);
   }
   const T3=window.THREE,col=T3?new T3.Color():null,col2=T3?new T3.Color():null,wh=T3?new T3.Color('#FFFFFF'):null,tmpc=T3?new T3.Color():null;
+  /* ===== shared Awakening presentation layer (every style) =====
+     anticipation in the 1 s telegraph (lights dim, vignette, glyph contracts, sparks converge), a BURST at telegraph→active
+     (hit-stop, camera punch-in and shake, colour flash, ground shock ring, title card), a countdown ring styles can opt into,
+     and a clean outro (A fades over the last 0.45 s instead of cutting). Presentation scales with rarity (RSC), never with
+     gameplay power. Reduced motion: no hit-stop, shake, flash or FOV snaps. In-game view: no title card, flash, vignette,
+     hit-stop or cinematic camera. Everything is pre-built; nothing here allocates per frame. */
+  const RSC={common:0.55,rare:0.68,epic:0.8,legendary:0.9,mythic:1},HSD={common:0.05,rare:0.065,epic:0.08,legendary:0.1,mythic:0.12};
+  const AWK={hs:0,bT:9,S:0.55,sa:0,sd:0.1,sT:9,pf:0,pdl:0,pd:0.3,pT:9,fovS:0,cdOn:0,lv:-1,lf:-1,OUT:0.45};
+  let VT=0;
+  /* per-style overrides of the shared burst: ring radius/duration, FOV punch, dolly */
+  const AWC={speed:{R:7,D:0.25,pf:0,pdl:0},swerve:{pf:-4,pd:0.25},wolf:{pf:-4,R:2.2},hawk:{pf:-4},playmaker:{pf:-4},tower:{pf:0,pdl:0.15},cannon:{R:3}};
+  const V0=T3?new T3.Vector3():null,V1=T3?new T3.Vector3():null,V2=T3?new T3.Vector3():null,V3=T3?new T3.Vector3():null,CL=T3?new T3.Vector3():null;
+  const c01=x=>x<0?0:x>1?1:x,ss=x=>{x=c01(x);return x*x*(3-2*x);},eO3=x=>1-Math.pow(1-c01(x),3),eOX=x=>x>=1?1:1-Math.pow(2,-10*c01(x)),eOB=x=>{x=c01(x)-1;return 1+2.70158*x*x*x+1.70158*x*x;};
+  /* blend the orbit camera toward a cinematic shot (weight w); CL holds the current look-at point */
+  const camTo=(px,py,pz,lx,ly,lz,w)=>{if(w<=0.001)return;w=Math.min(1,w);cam.position.lerp(V1.set(px,py,pz),w);CL.lerp(V2.set(lx,ly,lz),w);cam.lookAt(CL);};
+  const awStop=d=>{if(!reduce&&!gameView)AWK.hs=Math.max(AWK.hs,d);};
+  const awShake=(a,d)=>{if(reduce||gameView)return;AWK.sa=a;AWK.sd=d;AWK.sT=0;};
+  const awPunch=(f,dl,d)=>{if(reduce||gameView)return;AWK.pf=f;AWK.pdl=dl;AWK.pd=d;AWK.pT=0;};
+  function awFlash(x,y,z,c,s0,s1,d,o){if(!AWK.fl)return;let s=AWK.fl[0];for(const q of AWK.fl)if(q.userData.t>=q.userData.d){s=q;break;}const u=s.userData;u.t=0;u.d=d;u.s0=s0;u.s1=s1;u.o=o||1;s.position.set(x,y,z);s.material.color.set(c);s.scale.setScalar(s0);s.visible=true;}
+  function awRing(x,z,R,d,c,y){if(!AWK.rings)return;let r=AWK.rings[0];for(const q of AWK.rings)if(q.userData.t>=q.userData.d){r=q;break;}const u=r.userData;u.t=0;u.d=d;u.R=R;r.position.set(x,y||0.05,z);r.scale.setScalar(0.01);r.material.color.set(c);r.visible=true;}
+  function awBurst(c){const S=RSC[c.k]||0.55,o=AWC[c.fx]||{},R=o.R||2.4+4.6*S,D=o.D||0.32+0.2*S;AWK.S=S;AWK.bT=0;
+    awStop(HSD[c.k]||0.05);awShake(0.03+0.07*S,0.1+0.15*S);
+    awPunch(o.pf!==undefined?o.pf:-(2+3*S),o.pdl!==undefined?o.pdl:0.2+0.6*S,o.pd||0.3+0.15*S);
+    const x=fig.position.x,z=fig.position.z;awRing(x,z,R,D,c.c);awRing(x,z,R*0.6,D*0.8,c.c2);
+    awFlash(x,1.1,z,c.c2,0.4,2.5+3*S,0.18+0.1*S,0.9);
+    if(!gameView&&AWK.card){const d=AWK.card;d.classList.remove('go');void d.offsetWidth;d.classList.add('go');}}
+  /* runs after every style, just before rendering: flash sprites, shock rings, countdown ring, camera punch/shake/FOV, DOM overlays.
+     dt is the hit-stopped clock (the burst freezes with the world), rdt the real one (the shake plays through the freeze) */
+  function awPost(dt,rdt,TEL,DUR){AWK.bT+=dt;
+    for(const s of AWK.fl){const d=s.userData;if(d.t>=d.d){if(s.visible)s.visible=false;continue;}d.t+=dt;const u=Math.min(1,d.t/d.d);s.scale.setScalar(d.s0+(d.s1-d.s0)*eO3(u));s.material.opacity=d.o*(1-u)*(1-u);}
+    for(const r of AWK.rings){const d=r.userData;if(d.t>=d.d){if(r.visible)r.visible=false;continue;}d.t+=dt;const u=Math.min(1,d.t/d.d);r.scale.setScalar(Math.max(0.01,d.R*(1-Math.pow(1-u,2.2))));r.material.opacity=(1-u)*0.95;}
+    const act=mode==='aw'&&mt>=TEL,cdv=!!(AWK.cdOn&&act&&awkT>0.005);AWK.cd.visible=AWK.cdb.visible=cdv;
+    if(cdv){const f=Math.max(0,1-(mt-TEL)/DUR),o=awkT*c01((TEL+DUR-mt)/AWK.OUT+0.2);AWK.cd.geometry.setDrawRange(0,6*Math.ceil(64*f));AWK.cd.position.set(fig.position.x,0.045,fig.position.z);AWK.cdb.position.copy(AWK.cd.position);AWK.cd.material.opacity=0.9*o;AWK.cdb.material.opacity=0.14*o;}
+    AWK.pT+=dt;AWK.sT+=rdt;let pe=0;if(AWK.pT<AWK.pd){const u=AWK.pT/AWK.pd;pe=u<0.15?u/0.15:Math.pow(1-(u-0.15)/0.85,2);}
+    if(pe>0&&AWK.pdl){cam.getWorldDirection(V0);cam.position.addScaledVector(V0,AWK.pdl*pe);}
+    if(AWK.sT<AWK.sd){const k=AWK.sa*(1-AWK.sT/AWK.sd);cam.position.x+=(Math.random()-0.5)*2*k;cam.position.y+=(Math.random()-0.5)*2*k;cam.position.z+=(Math.random()-0.5)*k;}
+    const fv=36+(reduce||gameView?0:AWK.fovS)+AWK.pf*pe;if(Math.abs(cam.fov-fv)>0.01){cam.fov=fv;cam.updateProjectionMatrix();}
+    const S=AWK.S,tw=mode==='aw'&&!act?mt/TEL:0;
+    const vg=gameView?0:Math.min(1,tw*(0.45+0.45*S)+(act&&AWK.bT<0.5?(1-AWK.bT/0.5)*0.45:0));if(Math.abs(vg-AWK.lv)>0.008){AWK.lv=vg;AWK.vig.style.opacity=vg.toFixed(3);}
+    const fo=(!reduce&&!gameView&&AWK.bT<0.3)?S*0.8*Math.pow(1-AWK.bT/0.3,2):0;if(Math.abs(fo-AWK.lf)>0.008){AWK.lf=fo;AWK.flash.style.opacity=fo.toFixed(3);}}
+  /* batch-1 styles hide the generic aura cones while their own effect plays */
+  const quiet=k=>{if(k<=0.001)return;const q=1-Math.min(1,k);shell.material.opacity*=q;shell2.material.opacity*=q;for(let i=0;i<parts.length;i++)parts[i].material.opacity*=1-0.8*Math.min(1,k);};
+  /* small shared helpers for ribbons and partially drawn tubes (no allocations: they write into existing arrays) */
+  const ribV=(P,C,i,x,y,z,hx,hy,hz,r,g,b)=>{const o=i*6;P[o]=x+hx;P[o+1]=y+hy;P[o+2]=z+hz;P[o+3]=x-hx;P[o+4]=y-hy;P[o+5]=z-hz;C[o]=C[o+3]=r;C[o+1]=C[o+4]=g;C[o+2]=C[o+5]=b;};
+  const ribDone=m=>{m.geometry.attributes.position.needsUpdate=true;m.geometry.attributes.color.needsUpdate=true;};
+  const tubeShow=(m,segs,per,f,o)=>{m.visible=o>0.005&&f>0.001;if(m.visible){m.geometry.setDrawRange(0,per*Math.max(1,Math.ceil(segs*Math.min(1,f))));m.material.opacity=o;}};
   const pct=p=>(Math.round(p*100)/100)+'%',$=id=>document.getElementById(id),txt=(id,v)=>{const e=$(id);if(e)e.textContent=v;};
   function show(i){cur=(i+CH.length)%CH.length;const c=CH[cur],cl=CLS[c.k];mode='idle';mt=0;abI=0;awkT=0;telI=0;lastLbl='';
     txt('charName',c.n);txt('charStyle',c.st);txt('charWas',c.was==='new'?'new style':'formerly '+c.was);
@@ -3474,27 +3555,39 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     if(!R)return;col.set(c.c);col2.set(c.c2);fig.userData.bm.color.copy(col).lerp(wh,0.45);
     disc.material.color.copy(col);ring.material.color.copy(col2);shell.material.color.copy(col);shell2.material.color.copy(col2);light.color.copy(col);
     parts.forEach((m,k)=>m.material.color.copy(k%3?col:col2));orbits.forEach((o,k)=>o.material.color.copy(k===1?col2:col));
-    conv.forEach((m,k)=>m.material.color.copy(k%2?col:col2));glyph.material.color.copy(col);}
+    conv.forEach((m,k)=>m.material.color.copy(k%2?col:col2));glyph.material.color.copy(col);
+    /* shared Awakening layer: reset, then dress the title card and the colour flash for this style (rarer = bigger card, longer hold, more glow) */
+    const S=AWK.S=RSC[c.k]||0.55,q=(S-0.55)/0.45;AWK.hs=0;AWK.bT=9;AWK.sT=9;AWK.pT=9;AWK.fl.forEach(x=>{x.visible=false;x.userData.t=9;});AWK.rings.forEach(x=>{x.visible=false;x.userData.t=9;});
+    {const d=AWK.card;d.classList.remove('go');d.style.setProperty('--rc',cl.c);d.style.setProperty('--s',(0.82+0.5*q).toFixed(2));d.style.setProperty('--g',q.toFixed(2));d.style.setProperty('--band',Math.max(0,(S-0.6)*1.2).toFixed(2));d.style.animationDuration=(1.25+0.7*q).toFixed(2)+'s';
+     AWK.cardN.textContent=c.n;AWK.cardW.textContent=(c.sw||'').split(':')[0]+' · '+cl.n;
+     AWK.flash.style.background='radial-gradient(ellipse at 50% 60%,'+c.c2+' 0%,'+c.c+'cc 38%,'+c.c+'00 85%)';}}
   function size(){const w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
-  function frame(ts){raf=requestAnimationFrame(frame);const t=ts/1000,dt=Math.min(0.05,t-(last||t));last=t;
+  function frame(ts){raf=requestAnimationFrame(frame);const rt=ts/1000,rdt=Math.min(0.05,rt-(last||rt));last=rt;
+    /* shared hit-stop: the whole viewer (its clock t included) runs at 6% speed for a few frames */
+    let dt=rdt;if(AWK.hs>0){AWK.hs-=rdt;dt=rdt*0.06;}VT+=dt;const t=VT;
     const cc0=CH[cur],TEL=mode==='aw'?1:0.5,DUR=mode==='aw'?(cc0.dw||(cc0.fx==='speed'?7:cc0.fx==='time'||cc0.fx==='king'||cc0.fx==='wall'?5:6)):(cc0.da||(cc0.fx==='time'||cc0.fx==='acro'?4:cc0.fx==='dance'?5:cc0.fx==='ninja'?2.6:3));
-    if(mode!=='idle'){mt+=dt;if(mt>=TEL&&mt-dt<TEL&&mode==='aw'&&spd)spd.userData.waveT=0;if(mt>TEL+DUR){mode='idle';mt=0;}}
+    if(mode!=='idle'){mt+=dt;if(mt>=TEL&&mt-dt<TEL&&mode==='aw'){if(spd)spd.userData.waveT=0;awBurst(cc0);}if(mt>TEL+DUR){if(mode==='aw')awkT=0;mode='idle';mt=0;}}
     const act=mode!=='idle'&&mt>=TEL;telI=mode!=='idle'&&mt<TEL?mt/TEL:0;
+    /* phase clocks: telegraph progress 0–1, seconds since activation (-1 before), seconds left of the Awakening */
+    const awTel=mode==='aw'&&!act?telI:0,abTel=mode==='ab'&&!act?telI:0,awT=mode==='aw'&&act?mt-TEL:-1,abT=mode==='ab'&&act?mt-TEL:-1,awLeft=mode==='aw'&&act?TEL+DUR-mt:9;
     abI+=(((mode==='ab'&&act)?1:0)-abI)*Math.min(1,dt*6);awkT+=(((mode==='aw'&&act)?1:0)-awkT)*Math.min(1,dt*5);
-    const A=awkT,sp=reduce?0:1;
+    /* clean outro: every Awakening effect fades over the last 0.45 s instead of cutting */
+    const A=awkT*(awLeft<AWK.OUT?ss(awLeft/AWK.OUT):1),sp=reduce?0:1;AWK.fovS=0;AWK.cdOn=0;
     const lbl=mode==='idle'?'IDLE':(!act?'TELEGRAPH…':(mode==='ab'?'ABILITY ':'AWAKENING ')+Math.ceil(TEL+DUR-mt)+' s');
     if(lbl!==lastLbl){lastLbl=lbl;const md=document.getElementById('charMode');md.textContent=lbl;md.classList.toggle('on',mode!=='idle');md.classList.toggle('tel',mode!=='idle'&&!act);}
     conv.forEach(m=>{const d=m.userData,r=d.r*(1-telI);m.position.set(Math.cos(d.a+telI*3)*r,d.y*(1-telI)+0.15,Math.sin(d.a+telI*3)*r);m.material.opacity=telI>0?Math.min(1,telI*2)*0.95:0;m.scale.setScalar(0.6+telI);});
     glyph.material.opacity=(mode==='aw'&&!act)?0.9*Math.min(1,telI*3):0;glyph.scale.setScalar(3.2-telI*2.4);glyph.rotation.z=telI*4;
     if(!drag&&!reduce)yaw+=dt*0.35;
-    const tf=Math.tan(cam.fov*Math.PI/360),r=Math.max(2.9/tf,2.1/(tf*Math.max(0.3,cam.aspect)))+0.6;cam.position.set(Math.sin(yaw)*r,2.6,Math.cos(yaw)*r);cam.lookAt(0,1.6+A*0.2,0);
+    const tf=Math.tan(36*Math.PI/360),r=Math.max(2.9/tf,2.1/(tf*Math.max(0.3,cam.aspect)))+0.6;cam.position.set(Math.sin(yaw)*r,2.6,Math.cos(yaw)*r);CL.set(0,1.6+A*0.2,0);cam.lookAt(CL);
     const isSpd0=hasFx(cc0),gen=gameView?(isSpd0?0:Math.max(abI,A)):1;
     fig.position.y=(isSpd0?0:A*0.35)+Math.sin(t*2)*0.04*sp;fig.userData.arms.forEach((a,k)=>a.rotation.z=(k?1:-1)*(0.15+A*0.9+Math.sin(t*3+k)*0.05*sp));
     fig.userData.ball.position.set(0.55,0.28+Math.abs(Math.sin(t*4))*0.25*sp*(1-A),0.55);fig.userData.ball.visible=A<0.7;
     shell.scale.set(1+A*0.5+Math.sin(t*7)*0.04*sp,1+A*0.45,1+A*0.5+Math.cos(t*6)*0.04*sp);shell.material.opacity=(0.12+A*0.1+Math.sin(t*9)*0.03*sp)*gen;shell.rotation.y=t*0.8*sp;
     shell2.scale.set(1+A*0.6,1+A*0.6,1+A*0.6);shell2.material.opacity=(0.06+A*0.1)*gen;shell2.rotation.y=-t*1.2*sp;
     disc.material.opacity=(0.25+A*0.2+Math.sin(t*4)*0.05*sp)*gen;ring.material.opacity=gen;ring.scale.setScalar(1+A*0.5+Math.sin(t*3)*0.04*sp);
-    light.intensity=(gameView?0.3:1.2)+(A+abI*0.4+telI*0.5)*1.2+Math.sin(t*10)*0.2*sp*gen;
+    /* anticipation: the room dims through the Awakening telegraph (deeper for rarer styles) while the style light holds; the burst re-lights it */
+    {const dim=awTel>0&&!gameView?ss(awTel/0.85)*(0.3+0.4*AWK.S):0,fl=AWK.bT<0.35&&!gameView?(1-AWK.bT/0.35)*2.4*AWK.S:0;AWK.hemi.intensity=0.9*(1-dim);AWK.dir.intensity=0.6*(1-dim);
+     light.intensity=((gameView?0.3:1.2)+(A+abI*0.4+telI*0.5)*1.2+Math.sin(t*10)*0.2*sp*gen)*(1-0.4*dim)+fl;}
     parts.forEach((m,k)=>{const u=d=>(t*m.userData.sp*(1+A*1.4)+m.userData.ph)%1;const v=sp?u():m.userData.ph;const a=m.userData.a+t*m.userData.w*sp*(0.6+A);const rr=m.userData.r*(1+A*0.6)*(1-v*0.35);
       m.position.set(Math.cos(a)*rr,v*(3.4+A*1.6),Math.sin(a)*rr);m.scale.setScalar((1-v)*(1+A*0.5));m.rotation.set(t*3,t*2,0);m.material.opacity=((k<70||A>0.2)?0.8*(1-v):0)*gen;});
     orbits.forEach((o,k)=>{o.material.opacity=A*0.85;o.position.y=1.4+Math.sin(t*2+k*2)*0.5;o.rotation.set(Math.PI/2+Math.sin(t*0.9+k)*0.6,t*(0.7+k*0.3)*sp,Math.cos(t*0.8+k)*0.4);});
@@ -4029,6 +4122,7 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     if(!isTime)tmg.userData.legGlow.material.opacity=0;
     if(!isCham&&!isNinja){fig.userData.bm.opacity=1;fig.userData.bm.transparent=false;}
     if(!isKing){kng.userData.crownM.opacity=0;kng.userData.gem.material.opacity=0;kng.userData.hal.material.opacity=0;}
+    awPost(dt,rdt,TEL,DUR);
     R.render(scene,cam);}
   function open(){if(!R)build();if(!R){show(cur);return;}show(cur);requestAnimationFrame(()=>{size();if(!raf){last=0;raf=requestAnimationFrame(frame);}});}
   function close(){cancelAnimationFrame(raf);raf=0;}
