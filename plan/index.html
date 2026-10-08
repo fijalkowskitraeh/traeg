@@ -104,7 +104,7 @@ button.rulesbtn{background:var(--chip);border-color:var(--line);color:var(--ink)
 .badge.ok{background:#C9F2D6;color:#145A2E}
 .badge.skip{background:#E3DDF0;color:#6B6380;text-decoration:line-through}
 .badge.new{background:#FFD6E8;color:#8A1C4A}
-.clegend{font-size:13px;color:var(--muted);margin:10px 0 0;line-height:1.9}.clegend span{color:#fff;border-radius:999px;padding:2px 8px;font-weight:800;font-size:12px}
+.clegend{font-size:13px;color:var(--muted);margin:10px 0 0;line-height:1.9}
 .sdemo{position:relative;height:260px;border-radius:12px;overflow:hidden;margin:6px 0 10px}
 .sdemo canvas{width:100%;height:100%;display:block;touch-action:none;cursor:crosshair}
 .todo{display:grid;gap:6px}.todo p{margin:0;border-left:4px solid #F2C94C;background:var(--chip);border-radius:6px;padding:7px 10px;font-size:14px}
@@ -120,6 +120,116 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
 .panel.mini .head .badge.where{display:none}
 .panel.down .nav{visibility:hidden}
 @supports (height:100dvh){html,body,#app{height:100dvh}}
+
+/* ===== style viewer extras ===== */
+.badge.odds{background:#FFE9A8;color:#6A4A00}
+.cwas{font-size:12px;color:var(--muted);font-style:italic}
+.kbd{display:inline-block;min-width:20px;text-align:center;font:800 11px Nunito,sans-serif;border:2px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:0 5px;margin-left:4px;vertical-align:2px;color:var(--muted)}
+.cmore{background:var(--chip);border-radius:12px;padding:6px 12px;margin:0 0 8px;font-size:14px}
+.cmore summary{cursor:pointer;font-weight:800;padding:2px 0}
+.cmore p{margin:6px 0}
+.clegend{display:flex;flex-wrap:wrap;align-items:center;gap:6px;line-height:1.5}
+.clegend button,.xchip{font:800 12px Nunito,sans-serif;border-radius:999px;padding:3px 10px;border:2px solid var(--rc);background:var(--rc);color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.45);cursor:pointer}
+.clegend button[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:1px}
+.cnote{flex:1 1 100%;font-size:12.5px}
+button.linkbtn{background:none;border:0;padding:0;font:800 12.5px Nunito,sans-serif;color:#3D8BFF;text-decoration:underline;cursor:pointer}
+button.rollbtn{background:linear-gradient(135deg,#FFC233,#FF7AC6 55%,#B26BFF);border-color:#B26BFF;color:#2B1640}
+/* ===== roll dialog ===== */
+.xbox{width:min(820px,100%)}
+.xbody{padding-top:10px}
+.xbody h3 small{font-size:11px}
+.xbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.xwallet{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-weight:800}
+.xwallet b{font:400 26px "Lilita One",Nunito,sans-serif;line-height:1}
+.xwallet .xcoin{font-size:20px}
+.xfree{background:#C9F2D6;color:#145A2E;border-radius:999px;padding:2px 9px;font-size:12px}
+.xfree:empty{display:none}
+.xbarb{display:flex;gap:6px;flex-wrap:wrap}.xbarb button{padding:6px 10px;font-size:13px}
+.xslots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:4px 0 8px}
+.xslot{display:flex;border:2px solid var(--line);border-radius:12px;overflow:hidden;background:var(--chip)}
+.xslot.on{border-color:var(--ink);box-shadow:0 0 0 2px var(--rc,#8FA3B8) inset}
+.xsel{flex:1 1 auto;min-width:0;border:0;border-radius:0;background:none;padding:6px 8px;text-align:left;display:flex;flex-direction:column;gap:1px}
+.xsel .xk{font-size:11px;color:var(--muted)}
+.xsel .xsn{font:400 17px "Lilita One",Nunito,sans-serif;color:var(--rc,var(--muted));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 rgba(0,0,0,.18)}
+.xlock{flex:0 0 auto;border:0;border-left:2px solid var(--line);border-radius:0;background:none;padding:0 9px;font-size:15px}
+.xlock[aria-pressed="true"]{background:#FFE9A8}
+.xcur{border-left:6px solid var(--rc,#8FA3B8);background:var(--chip);border-radius:12px;padding:8px 12px;margin-bottom:10px}
+.xcur h4{margin:0 0 2px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;font:400 20px "Lilita One",Nunito,sans-serif}
+.xcur p{margin:3px 0;font-size:14px}
+.xcur .xmuted,.xsmall{color:var(--muted);font-size:13px}
+.xstars{color:#E0A500;letter-spacing:1px;font-size:13px}
+.xstage{position:relative;height:200px;border-radius:14px;overflow:hidden;background:radial-gradient(ellipse at 50% 60%,#2A2246,#0E0B18 75%);isolation:isolate}
+.xstage::before,.xstage::after{content:"";position:absolute;left:0;right:0;height:0;background:#000;z-index:3;transition:height .35s}
+.xstage::before{top:0}.xstage::after{bottom:0}
+.xstage.lb::before,.xstage.lb::after{height:9%}
+.xreel{position:absolute;inset:0;display:flex;align-items:center;overflow:hidden;transition:opacity .25s}
+.xreel::after{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:4px;margin-left:-2px;background:#fff;border-radius:2px;box-shadow:0 0 12px #fff;z-index:2}
+.xstage.flash .xreel::after{background:var(--rc);box-shadow:0 0 22px 6px var(--rc)}
+.xstrip{display:flex;gap:8px;padding:0 8px;will-change:transform}
+.xc{flex:0 0 112px;height:124px;border-radius:12px;border:3px solid var(--rc);background:#211A33;background:linear-gradient(160deg,color-mix(in srgb,var(--rc) 55%,#15111F),#15111F 85%);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;box-sizing:border-box}
+.xc b{font:400 18px "Lilita One",Nunito,sans-serif;line-height:1.05}
+.xc i{font-style:normal;font-size:11px;font-weight:800;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+.xc.hit{transform:scale(1.06);box-shadow:0 0 18px var(--rc)}
+.xidle[hidden]{display:none}
+.xidle{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#EDE8F7;font-weight:800;padding:0 20px;z-index:3;background:rgba(14,11,24,.55)}
+.xcard{position:absolute;left:50%;top:50%;width:236px;min-height:150px;max-height:calc(100% - 12px);overflow:hidden;border-radius:16px;border:3px solid var(--rc);background:#2A2140;background:linear-gradient(160deg,color-mix(in srgb,var(--rc) 70%,#15111F),#15111F 90%);color:#fff;padding:10px 12px;z-index:4;display:flex;flex-direction:column;gap:2px;transform:translate(-50%,-50%) perspective(700px) rotateY(90deg) scale(.8);opacity:0;box-shadow:0 0 0 rgba(0,0,0,0);transition:transform .45s cubic-bezier(.2,1.4,.4,1),opacity .2s,box-shadow .45s}
+.xcard.show{transform:translate(-50%,-50%) perspective(700px) rotateY(0) scale(1);opacity:1;box-shadow:0 0 calc(var(--gl,0) * 1px) calc(var(--gl,0) * .25px) var(--rc)}
+.xcard .xr{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.xcard b{font:400 28px "Lilita One",Nunito,sans-serif;line-height:1}
+.xcard span{font-size:12px;line-height:1.25;opacity:.92}
+.xcard .xl1{margin-top:auto}
+.xcard .xtag{position:absolute;right:8px;top:8px;background:#fff;color:#2B2340;border-radius:999px;font-size:10.5px;font-weight:800;padding:1px 8px;letter-spacing:.04em}
+.xrays{position:absolute;left:50%;top:50%;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;background:repeating-conic-gradient(from 0deg,color-mix(in srgb,var(--rc) 55%,transparent) 0 8deg,transparent 8deg 22deg);-webkit-mask:radial-gradient(circle,#000 0,#000 18%,transparent 62%);mask:radial-gradient(circle,#000 0,#000 18%,transparent 62%);opacity:0;z-index:1;transition:opacity .4s}
+.xstage.rays .xrays{opacity:1;animation:xspin 9s linear infinite}
+@keyframes xspin{to{transform:rotate(360deg)}}
+.xfx{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+.xflash{position:absolute;inset:0;background:var(--rc,#fff);opacity:0;z-index:5;pointer-events:none}
+.xflash.go{animation:xflash .55s ease-out}
+@keyframes xflash{0%{opacity:var(--fa,.4)}100%{opacity:0}}
+.xstage.shake{animation:xshake .4s}
+@keyframes xshake{0%,100%{transform:none}20%{transform:translate(-5px,2px)}40%{transform:translate(5px,-2px)}60%{transform:translate(-3px,1px)}80%{transform:translate(2px,0)}}
+.xstage.pulse{animation:xpulse 1.4s ease-in-out 2}
+@keyframes xpulse{50%{box-shadow:0 0 0 4px var(--rc) inset,0 0 40px var(--rc) inset}}
+.xbanner{position:absolute;left:0;right:0;top:50%;margin-top:-24px;text-align:center;z-index:7;font:400 40px/48px "Lilita One",Nunito,sans-serif;color:#fff;letter-spacing:.08em;text-shadow:0 0 18px var(--rc),0 0 4px var(--rc),0 3px 0 rgba(0,0,0,.5);opacity:0;transform:scale(2.2);transition:opacity .25s,transform .35s cubic-bezier(.2,1.4,.4,1);pointer-events:none}
+.xstage.ban .xbanner{opacity:1;transform:none}
+.xtoast{position:absolute;left:50%;bottom:10px;transform:translate(-50%,20px);background:rgba(0,0,0,.75);color:#FFE9A8;font-size:12.5px;font-weight:800;border-radius:999px;padding:4px 12px;z-index:8;opacity:0;transition:opacity .3s,transform .3s;white-space:nowrap;max-width:94%;overflow:hidden;text-overflow:ellipsis}
+.xtoast.show{opacity:1;transform:translate(-50%,0)}
+.xact{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:10px 0 6px}
+.xspin{font-size:17px;padding:11px 22px}
+.xq{display:flex;align-items:center;gap:5px;font-weight:800;font-size:14px;cursor:pointer}
+.xq input{width:18px;height:18px;accent-color:#B26BFF}
+.xmsg{flex:1 1 200px;font-size:13.5px;color:var(--muted);font-weight:700}
+.xres{min-height:0}
+.xres:empty{display:none}
+.xdec{background:var(--chip);border-radius:12px;padding:10px 12px;margin:0 0 8px;border:2px solid var(--rc,var(--line))}
+.xdec p{margin:0 0 8px;font-size:14.5px}
+.xdec .xbtns{display:flex;gap:8px;flex-wrap:wrap}
+.xpity{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0 4px}
+.xp{background:var(--chip);border-radius:12px;padding:7px 10px;font-size:13px}
+.xp b{display:block;font-size:13.5px}
+.xp span{color:var(--muted);font-weight:700}
+.xp.hot span{color:var(--ink)}
+.xpbar{height:7px;border-radius:99px;background:var(--line);margin-top:5px;overflow:hidden}
+.xpbar i{display:block;height:100%;border-radius:99px;background:var(--rc)}
+.xtut{grid-column:1 / -1;background:#C9F2D6;color:#145A2E;border-radius:12px;padding:6px 10px;font-size:13px;font-weight:800}
+.xodds td{vertical-align:middle}
+.xodds .xrn{display:inline-block;color:#fff;background:var(--rc);border-radius:999px;padding:1px 9px;font-weight:800;font-size:12.5px;text-shadow:0 1px 1px rgba(0,0,0,.4)}
+.xodds .xch{display:flex;flex-wrap:wrap;gap:4px}
+.xodds .xnext.chg{background:#FFE9A8;color:#6A4A00;font-weight:800;border-radius:6px;padding:0 5px;align-self:flex-start}
+.xchip{font-size:12px;padding:2px 9px}
+.xchip.got::after{content:" ✓"}
+.xhist{margin:4px 0;padding-left:22px;font-size:13.5px}
+.xhist li{margin:2px 0}
+.xhist .xdot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--rc);margin-right:6px;vertical-align:0}
+.xhist .xo{color:var(--muted)}
+.xsim{margin:8px 0;display:grid;gap:6px}
+.xsr{display:grid;grid-template-columns:86px 1fr 150px;gap:8px;align-items:center;font-size:13px}
+.xsr .xbarw{position:relative;height:14px;background:var(--line);border-radius:7px;overflow:hidden}
+.xsr .xbarw i{position:absolute;left:0;top:0;bottom:0;background:var(--rc);border-radius:7px}
+.xsr .xbarw u{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink);text-decoration:none}
+.xsr em{font-style:normal;color:var(--muted)}
+.xrules li{margin:4px 0}
+@media (prefers-reduced-motion:reduce){.xcard,.xreel,.xbanner,.xtoast,.xstage::before,.xstage::after{transition:none}.xstage.rays .xrays{animation:none}}
 
 /* ===== PHONE (portrait) ===== */
 @media (max-width:600px){
@@ -157,8 +267,16 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
   .chip{font-size:12.5px;padding:6px 11px}
   .nav{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"mid mid" "prev next";gap:7px;margin-top:2px}
   .nav #prev{grid-area:prev}.nav #next{grid-area:next}
-  .nav .mid{grid-area:mid;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-  .nav .mid button{padding:7px 3px;font-size:12px;line-height:1.15;border-radius:10px;white-space:normal;min-height:40px}
+  .nav .mid{grid-area:mid;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+  .nav .mid button{padding:6px 2px;font-size:11.5px;line-height:1.15;border-radius:10px;white-space:normal;min-height:42px;overflow-wrap:anywhere;hyphens:auto}
+  .xslots{gap:5px}.xsel{padding:5px 6px}.xsel .xsn{font-size:15px}.xlock{padding:0 6px;font-size:13px}
+  .xstage{height:176px}
+  .xc{flex-basis:96px;height:112px}.xc b{font-size:16px}
+  .xcard{width:210px;min-height:130px}.xcard b{font-size:24px}.xcard span{font-size:11.5px}
+  .xpity{gap:5px}.xp{padding:6px 8px;font-size:12px}.xp b{font-size:12.5px}
+  .xsr{grid-template-columns:70px 1fr 112px;font-size:12px}
+  .xbarb{width:100%}.xbarb button{flex:1 1 0}
+  .cinfo .cmore{order:2}
   .nav #prev,.nav #next{padding:11px 10px;font-size:15px}
   .xl{display:none}
   .panel.mini .pbody,.panel.mini .chips,.panel.mini .nav .mid{display:none}
@@ -194,7 +312,8 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
 @media (max-width:360px){
   .brand h1{font-size:15px}
   .stat span{display:none}
-  .nav .mid button{font-size:11px}
+  .nav .mid button{font-size:10.5px}
+  .xslots{grid-template-columns:1fr}
 }
 
 /* ===== PHONE (landscape): side panel ===== */
@@ -223,8 +342,11 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
   .chip{font-size:12px;padding:5px 10px}
   .nav{flex:0 0 auto;display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"mid mid" "prev next";gap:6px}
   .nav #prev{grid-area:prev}.nav #next{grid-area:next}
-  .nav .mid{grid-area:mid;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
-  .nav .mid button{padding:6px 2px;font-size:11.5px;line-height:1.15;white-space:normal;min-height:36px;border-radius:10px}
+  .nav .mid{grid-area:mid;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+  .nav .mid button{padding:5px 1px;font-size:11px;line-height:1.12;white-space:normal;min-height:38px;border-radius:10px;overflow-wrap:anywhere}
+  .xstage{height:160px}.xc{flex-basis:96px;height:104px}
+  .xcard{width:250px;min-height:120px;padding:8px 12px}.xcard b{font-size:22px}.xcard span{font-size:11.5px}
+  .cinfo .cmore{order:2}
   .nav #prev,.nav #next{padding:8px 10px;font-size:14px}
   .xl{display:none}
   .rules{padding:0}
@@ -271,7 +393,7 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
     <div class="chips" id="chips" role="list"></div>
     <div class="nav">
       <button id="prev">Back</button>
-      <div class="mid"><button id="red" class="redbtn">Wild Card Door</button><button id="rulesBtn" class="rulesbtn">📜 Rules<span class="xl"> of play</span></button><button id="ctrlsBtn" class="rulesbtn">🎮 Controls</button><button id="charsBtn" class="rulesbtn">🧍 Characters</button></div>
+      <div class="mid"><button id="red" class="redbtn">Wild Card Door</button><button id="rulesBtn" class="rulesbtn">📜 Rules<span class="xl"> of play</span></button><button id="ctrlsBtn" class="rulesbtn">🎮 Controls</button><button id="charsBtn" class="rulesbtn">🧍 Styles</button><button id="rollBtn" class="rulesbtn rollbtn">🎲 Roll</button></div>
       <button id="next" class="go">Next</button>
     </div>
   </div>
@@ -295,6 +417,7 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
       <ul>
         <li>Teams are <b>random</b>.</li>
         <li>In the lobby, before the start, players can form <b>alliances</b>. Allied players are put on the same team whenever possible, as long as the alliance fits in that match's team size.</li>
+        <li>In the lobby every player also picks the <b>style</b> they will play (keys 1, 2, 3 choose the slot). It is locked for the whole tournament and shown on their intro card. See section 11.</li>
       </ul>
 
       <h3>3. Match 1: 8v8 <small>48 → 24 · 3 min</small></h3>
@@ -329,7 +452,7 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
         <p><b>🏐 Volleyball</b>: with the feet. The ball speeds up with every touch, and a gold ring shows where it will land. After a point it slows down again.</p>
         <p><b>🏒 Hockey</b>: a normal ball on ice. Slippery, hard to stop, players fall over.</p>
         <p><b>💣 Bomb</b>: whoever concedes a goal gets a bomb with a timer. Scoring a goal gets rid of it. When time runs out, the team holding the bomb loses.</p>
-        <p><b>⚡ Random power-ups</b>: crates drop onto the pitch: speed, super jump, power shot, freeze an opponent, ball magnet.</p>
+        <p><b>⚡ Random power-ups</b>: crates drop onto the pitch: speed, super jump, power shot, freeze an opponent (a 0.5 s stagger), ball magnet. You use the crate you carry with key 2. Crates follow the same caps as styles and don't stack with a style that boosts the same thing.</p>
       </div>
       <ul><li>The winners of both matches (8) go on to Match 4. The losers are out.</li></ul>
 
@@ -361,6 +484,44 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
         <li>The game has a <b>leaderboard</b>.</li>
       </ul>
 
+      <h3>11. Styles, rarities and rolling <small>20 styles · 5 rarities</small></h3>
+      <ul>
+        <li>Every player plays one <b>style</b>: one ability (key 1, with a cooldown) and one <b>Awakening</b> (G, at 100 aura). The style is picked in the lobby and locked for all 7 games, so rivals can learn it.</li>
+        <li>Styles come from <b>rolls</b> in the lobby: 100 coins per roll, and coins are earned only by playing (about 40 per tournament). New players get 300 coins and a free roll that is guaranteed Rare or better.</li>
+        <li><b>Rarer means flashier, more complex and more situational, never stronger.</b> A longer cooldown pays for a bigger effect, so power per minute is the same in every rarity. Every Awakening has the same budget: about one strong chance created or denied, lasting 4–6 s, with a counter.</li>
+      </ul>
+      <div class="tscroll"><table class="ctab xodds">
+        <thead><tr><th>Rarity</th><th>Chance per roll</th><th>Cooldown</th><th>Styles</th></tr></thead>
+        <tbody>
+          <tr><td><span class="xrn" style="--rc:#8FA3B8">Common</span></td><td><b>52%</b> (7.43% each)</td><td>12–14 s</td><td>Burst, Swerve, Cannon, Tower, Playmaker, Wolf, Ballhawk</td></tr>
+          <tr><td><span class="xrn" style="--rc:#3D8BFF">Rare</span></td><td><b>28%</b> (5.6% each)</td><td>16–18 s</td><td>Groove, Acrobat, Glacier, Ember, Snapshot</td></tr>
+          <tr><td><span class="xrn" style="--rc:#B26BFF">Epic</span></td><td><b>14%</b> (3.5% each)</td><td>20–22 s</td><td>Monarch, Bulwark, Illusionist, Shade</td></tr>
+          <tr><td><span class="xrn" style="--rc:#FFB21A">Legendary</span></td><td><b>5%</b> (1.67% each)</td><td>24–26 s</td><td>Tempest, Mimic, Analyst</td></tr>
+          <tr><td><span class="xrn" style="--rc:#FF3B6B">Mythic</span></td><td><b>1%</b> (1% each)</td><td>28–30 s</td><td>Hourglass</td></tr>
+        </tbody></table></div>
+      <ul>
+        <li><b>Guarantees:</b> Epic or better within 10 rolls, Legendary or better within 50, the Mythic within 200. Counting them, players really get Common 50.3%, Rare 27.1%, Epic 15.6%, Legendary 5.7% and Mythic 1.3%.</li>
+        <li><b>After a roll</b> you choose Keep new or Keep current, so a roll never takes away a style you like. A duplicate gives coins back and a cosmetic Mastery Star. Up to 3 slots, each with a lock.</li>
+        <li><b>Robux:</b> no paid random rolls at launch. Robux buys one specific style from the daily Style Shop, slot 3 or cosmetics; coins are never sold. If paid spins are added later, the odds are shown before any purchase and spins are hidden where paid random items are restricted.</li>
+        <li>Bots get random styles from the same table, except the Mythic. <button class="linkbtn" data-open="roll">🎲 Try the roll</button> or <button class="linkbtn" data-open="chars">🧍 see every style in 3D</button>.</li>
+      </ul>
+
+      <h3>12. Fair-play rules for every style</h3>
+      <ul>
+        <li><b>Caps:</b> movement bonus +35% in total from all sources; slows at most 40%; shot speed at most 130% of a normal full-power shot; jump at most +50%. The same stat from different sources (styles, crates, teammates) doesn't stack: the highest applies.</li>
+        <li><b>Crowd control:</b> a stagger lasts at most 0.5 s. Any stagger, shove, slow or startle gives 2 s of immunity, shown as a white outline. Goalkeepers are immune to every style effect: the AI keeper and players inside their own goal area.</li>
+        <li><b>Never allowed:</b> unblockable or pass-through shots, automatic return of a lost ball, full invisibility (the ball is always visible), silences or ability locks, automatic dodges or steals.</li>
+        <li><b>Areas:</b> a radius of 7 m at most (4 m in Hot Potato). Nothing affects the whole pitch.</li>
+        <li><b>“Next action” buffs</b> expire after the window in their text. The cooldown starts when the ability is fired.</li>
+        <li><b>Telegraphs:</b> 0.5 s before an ability and 1 s before an Awakening, visible to rivals. Each style has its own silhouette, colour and sound, plus its icon over your head and a ground ring. You move at 50% speed during your Awakening telegraph; being tackled doesn't cancel it, and you can't start one while staggered.</li>
+        <li><b>Ready glow:</b> at 100 aura you get a rim light in your style colour and an icon over your head, so every rival knows an Awakening is loaded.</li>
+        <li><b>Aura:</b> none during your own Awakening, none for what an Awakening does on its own (wall blocks, lightning turnovers), and dribbles give at most 20 per minute. Up to 50 aura carries into the next match, and both finalists start the Final with at least 50.</li>
+        <li><b>Hot Potato:</b> all cooldowns reset at the start of each round; Awakenings can't be started in the last 10 s; aim assist is off for bent kicks; only the potato touching you makes you the holder, so steal effects become deflections; the round clock never slows. Aura there: +10 for kicking the potato into a rival, +5 for a dodge (it passes within 1 m), +10 for surviving a round, max 30 per round.</li>
+        <li><b>Dribble guard:</b> only the first 0.35 s of a stepover or rainbow beats a slide.</li>
+        <li><b>Cosmetics</b> never change a telegraph's shape, a range ring or any other gameplay tell.</li>
+        <li><b>Effects are client-side:</b> hit-stop, slow motion, flashes and camera moves play only on each viewer's own camera, and the server never pauses. Reduced motion turns off shake, hit-stop and camera punches and halves the particles.</li>
+      </ul>
+
       <h3 class="miss">Still to decide</h3>
       <div class="todo">
         <p><b>Losers' bracket (Wild Card):</b> what the 24 players play and in what format. No idea yet.</p>
@@ -369,9 +530,24 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
         <p><b>Hot Potato:</b> can you kick the ball straight back at the player who hit you.</p>
         <p><b>Match 5:</b> a time limit for when nobody scores.</p>
         <p><b>Leaderboard:</b> what it counts (tournament wins, goals, crowns?).</p>
-        <p><b>Aura:</b> whether it carries over between matches.</p>
-        <p><b>Abilities and Awakening:</b> the list of abilities, their cooldowns and animations, whether players pick their set in the lobby, and what exactly Awakening does.</p>
-        <p><b>Goalkeepers in team matches:</b> a player in goal, an AI goalkeeper, or no goalkeepers.</p>
+      </div>
+      <h3 class="miss">Styles, Awakening and rolling: please confirm</h3>
+      <p class="rlead" style="margin-top:2px">The 20 styles, their rarities, cooldowns and Awakenings are now set (see sections 11 and 12, and the Styles and Roll buttons). These choices still need your yes or no:</p>
+      <div class="todo">
+        <p><b>Keys 1/2/3:</b> one active style per player (1 = ability, G = Awakening, 2 = Match 3 crate item, 3 = comms wheel), as proposed? Or three styles in a match with one shared cooldown?</p>
+        <p><b>Style lock:</b> the active style is locked for the whole tournament (proposed, for readability and no counter-picking). Or may players switch in the Hall of Winners between matches, for example after the Match 3 mode is revealed?</p>
+        <p><b>Roll model:</b> rolling into a slot with Keep new / Keep current (proposed), or a permanent collection where every rolled style is unlocked forever and can be equipped freely?</p>
+        <p><b>Goalkeepers in team matches and in the Final:</b> AI keeper, player keeper or none? This changes Bulwark's 8 m rule, Shade's goal-area rule and the Cannon and Snapshot numbers.</p>
+        <p><b>Base numbers in studs:</b> walk, sprint and with-ball speed, slide length (about 4 m assumed), tackle and interception reach (1.5 m), full shot charge (1.0 s) and jump height. All percentages and caps are relative to these.</p>
+        <p><b>Standing tackle:</b> is there a standing tackle or poke, or can the ball only be won by a slide tackle or an interception? The counterplay for Groove and Monarch depends on it. Do slide tackles exist in the Hot Potato chamber?</p>
+        <p><b>Aura carry-over:</b> agree that up to 50 aura carries into the next match and that both finalists start the Final with at least 50?</p>
+        <p><b>Hot Potato:</b> Awakenings are allowed except in the last 10 s of a round. Aura there: +10 for kicking the potato into a rival, +5 for a dodge, +10 for surviving a round, max 30 per round. Does a header count as a kick?</p>
+        <p><b>Mythic tier:</b> keep Hourglass alone at 1% (proposed), or fold it into Legendary (Legendary 6% with 4 styles)?</p>
+        <p><b>Robux:</b> launch without paid random spins (proposed), with Robux buying only specific styles from the daily Style Shop (75/150/300/600 R$; Mythic coins only), slot 3 and cosmetics? Should Legendaries be buyable with Robux at all?</p>
+        <p><b>Coin pace:</b> 100 coins per roll, about 40 coins per tournament plus daily bonuses, about 5 rolls a day for a daily player and 8–9 in the first session. Is this the pace you want? Should there be a 10-roll bundle?</p>
+        <p><b>Bots:</b> they use the same odds but never get the Mythic. Should bots in small lobbies lean toward Common and Rare so new players don't feel outclassed?</p>
+        <p><b>Trading:</b> none (proposed), to avoid a gambling-like secondary market. Confirm.</p>
+        <p><b>Seasons:</b> add new styles from the bottom of the pyramid up, while each rarity's rate stays fixed and only the per-style share drops. Is Ricochet (bank shots off walls, a Rare) a good first candidate?</p>
       </div>
     </div>
   </div>
@@ -396,8 +572,11 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
           <tr><td>Dribble: stepover (with the ball)</td><td>Q</td><td>Dribble</td><td>B</td></tr>
           <tr><td>Rainbow flick (with the ball)</td><td>Space + Q</td><td>Jump + Dribble</td><td>A + B</td></tr>
           <tr><td>Cancel (stop charging a shot or a dribble)</td><td>C</td><td>Cancel (shown while active)</td><td>X</td></tr>
-          <tr><td>Abilities (with cooldown)</td><td>1, 2, 3</td><td>3 small buttons</td><td>D-pad</td></tr>
+          <tr><td>Style ability (with cooldown)</td><td>1</td><td>small button 1</td><td>D-pad up</td></tr>
           <tr><td>Awakening (at 100 aura)</td><td>G</td><td>glowing Awakening button</td><td>LB + RB</td></tr>
+          <tr><td>Use the crate you carry (Match 3 power-ups)</td><td>2</td><td>small button 2</td><td>D-pad right</td></tr>
+          <tr><td>Comms wheel (tap: “Pass!” / “Shoot!” ping, hold: pings and emotes)</td><td>3</td><td>small button 3</td><td>D-pad left</td></tr>
+          <tr><td>Lobby only: pick the style slot you play with</td><td>1, 2, 3</td><td>tap a slot</td><td>D-pad</td></tr>
           <tr><td>Scoreboard</td><td>Tab</td><td>corner icon</td><td>Select</td></tr>
         </tbody></table></div>
       <h3>Power bar and shot line (try it)</h3>
@@ -421,7 +600,7 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
         <li><b>Stepover:</b> legs circle over the ball and you sidestep (A/D picks the side). Cooldown about 2 s.</li>
         <li><b>Rainbow flick:</b> the ball flies over your head, forward and over the defender. For a moment it's loose. Cooldown about 4 s.</li>
         <li><b>Cancel (C):</b> stops a charging shot or a dribble you've started, e.g. when an opponent blocks the way or you'd rather pass.</li>
-        <li><b>Dribble vs slide tackle:</b> if an opponent slides in while you're dribbling, <b>you keep the ball</b>. If you're not dribbling at that moment, you lose it.</li>
+        <li><b>Dribble vs slide tackle:</b> if an opponent slides in during the first 0.35 s of your stepover or rainbow, <b>you keep the ball</b>. If you're not dribbling at that moment, you lose it.</li>
         <li><b>Mode changes:</b> Hot Potato, Match 5 and the Final have no pass. Hot Potato has light aim assist toward players. In basketball a shot in the air is a shot at the hoop. In volleyball a shot sends the ball over the net, and a slide tackle saves it just above the ground. In hockey players slide around.</li>
       </ul>
 
@@ -433,22 +612,25 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
           <tr><td>Assist</td><td>+6</td><td>+10</td><td>last pass or lob to the scorer within 8 s before the goal</td></tr>
           <tr><td>Save</td><td>+4</td><td>+8</td><td>a blocked or saved shot that was on target</td></tr>
           <tr><td>Tackle</td><td>+3</td><td>+5</td><td>winning the ball with a slide tackle or intercepting a pass</td></tr>
-          <tr><td>Successful dribble</td><td>+2</td><td>+10</td><td>stepover or rainbow during an opponent's slide tackle</td></tr>
+          <tr><td>Successful dribble</td><td>+2</td><td>+10</td><td>stepover or rainbow beats an opponent's slide tackle (aura: max 20 per minute)</td></tr>
           <tr><td>Shot on target</td><td>+2</td><td>+3</td><td>a shot on target (off target: 0)</td></tr>
           <tr><td>Accurate pass</td><td>+1</td><td>+2</td><td>the ball reached a teammate</td></tr>
         </tbody></table></div>
       <ul>
         <li>At <b>100 aura</b> your <b>Awakening</b> is ready. The aura bar is shown next to stamina.</li>
-        <li><b>Anti-farming:</b> a pass only counts if it travels some distance, and passes give at most 10 aura per minute. Likewise, shots on target only count from open play, not from point-blank into an empty goal after a rebound off yourself.</li>
+        <li><b>Anti-farming:</b> a pass only counts if it travels some distance, and passes give at most 10 aura per minute; dribbles give at most 20 aura per minute. Shots on target only count from open play, not from point-blank into an empty goal after a rebound off yourself. You earn no aura during your own Awakening, or for what it does on its own (wall blocks, lightning turnovers).</li>
+        <li><b>Between matches:</b> up to 50 aura carries into the next match, and both finalists start the Final with at least 50. In Hot Potato aura comes from kicking the potato into a rival (+10), dodging it (+5) and surviving a round (+10), max 30 per round.</li>
         <li><b>Tab</b> shows for every player: points, goals, assists, shots, tackles, saves, accurate passes and aura.</li>
         <li>Tab points are <b>stats</b>: the player with the most points on the team is the captain, who picks a player in Match 2.</li>
       </ul>
 
-      <h3>Abilities and Awakening</h3>
+      <h3>Styles, abilities and Awakening</h3>
       <ul>
-        <li><b>Abilities (1, 2, 3)</b> can be used at any time, but each has a <b>cooldown</b>. They are light boosts: they don't win a match on their own, they just help.</li>
-        <li><b>Aura</b> charges from the actions in the table above. At <b>100 aura</b> you can fire your <b>Awakening (G)</b>: a stronger version of your ability with a flashy animation.</li>
-        <li>After you use Awakening, aura drops to 0 and charges up again.</li>
+        <li>Every player has <b>one style</b>: its <b>ability</b> on key <b>1</b>, with a cooldown of 12–30 s depending on rarity, and its <b>Awakening</b> on <b>G</b> at 100 aura. Keys 2 and 3 are the crate item and the comms wheel, never a second ability.</li>
+        <li>Abilities are light boosts: they help but never win a match on their own. An Awakening is a stronger version with a big animation, worth about one strong chance created or denied, lasting 4–6 s, and every one has a counter.</li>
+        <li><b>Telegraphs:</b> rivals see a 0.5 s warning before your ability and a 1 s warning before your Awakening, each with the style's own look, sound, icon and ground ring. During the Awakening warning you move at 50% speed.</li>
+        <li><b>Ready glow:</b> at 100 aura your character gets a rim light in your style colour and an icon over your head, so rivals know an Awakening is loaded. After you use it, aura drops to 0 and charges up again.</li>
+        <li><b>Rarity:</b> Common 52%, Rare 28%, Epic 14%, Legendary 5%, Mythic 1% per roll. Rarer styles are flashier and more complex, never stronger: longer cooldowns balance the bigger effects. <button class="linkbtn" data-open="chars">🧍 See all 20 styles</button> · <button class="linkbtn" data-open="roll">🎲 Roll</button></li>
       </ul>
 
     </div>
@@ -457,25 +639,101 @@ button,.chip,.opt{touch-action:manipulation;-webkit-tap-highlight-color:transpar
 </div>
 <div class="rules" id="chars" hidden role="dialog" aria-modal="true" aria-labelledby="charsTitle">
   <div class="rbox card cbox">
-    <div class="rhead"><h2 id="charsTitle">Characters and abilities</h2><button id="charsClose" aria-label="Close characters">✕</button></div>
-    <div class="cstage"><canvas id="charCanvas" aria-label="3D character with aura"></canvas>
-      <button class="cnav cprev" id="charPrev" aria-label="Previous character">◀</button><button class="cnav cnext" id="charNext" aria-label="Next character">▶</button>
-      <span class="ccount" id="charCount">1 / 15</span><span class="cmode" id="charMode">IDLE</span></div>
+    <div class="rhead"><h2 id="charsTitle">Styles and abilities</h2><button id="charsClose" aria-label="Close styles">✕</button></div>
+    <div class="cstage"><canvas id="charCanvas" aria-label="3D character with its style effect"></canvas>
+      <button class="cnav cprev" id="charPrev" aria-label="Previous style">◀</button><button class="cnav cnext" id="charNext" aria-label="Next style">▶</button>
+      <span class="ccount" id="charCount">1 / 20</span><span class="cmode" id="charMode">IDLE</span></div>
     <div class="rbody cinfo">
-      <div class="chead"><h3 id="charName">Character</h3><span class="badge cls" id="charClass">Rare</span><span class="badge" id="charStatus">Draft</span><span class="badge where" id="charStyle">speed</span></div>
-      <div class="cab"><b>Ability</b><span class="cd" id="charCd">cooldown 15 s</span><p id="charAb"></p></div>
-      <div class="cab awk"><b>Awakening</b><span class="cd">100 aura</span><p id="charAw"></p></div>
-      <div class="cbtns"><button id="charAbBtn" class="go">⚡ Use ability</button><button id="charAwBtn" class="go awb">✨ Awakening</button><button id="charViewBtn">🎮 View: showcase</button></div>
-      <p class="clegend"><b>Classes:</b> <span style="background:#8FA3B8">Common</span> cooldown 12–15 s · <span style="background:#3D8BFF">Rare</span> 18–20 s · <span style="background:#B26BFF">Epic</span> 22–25 s · <span style="background:#FFB21A">Legendary</span> 28–30 s. The stronger the character, the longer it waits for its ability.</p>
+      <div class="chead"><h3 id="charName">Style</h3><span class="badge cls" id="charClass">Common</span><span class="badge odds" id="charStatus" title="Chance to roll this exact style">–</span><span class="badge where" id="charStyle">speed</span><span class="cwas" id="charWas"></span></div>
+      <div class="cbtns" style="margin:8px 0 2px"><button id="charAbBtn" class="go">⚡ Use ability</button><button id="charAwBtn" class="go awb">✨ Awakening</button><button id="charViewBtn">🎮 View: showcase</button></div>
+      <div class="cab"><b>Ability</b> <span class="kbd">1</span><span class="cd" id="charCd">cooldown</span><p id="charAb"></p></div>
+      <div class="cab awk"><b>Awakening</b> <span class="kbd">G</span><span class="cd" id="charAwCd">100 aura</span><p id="charAw"></p></div>
+      <details class="cmore"><summary>Game modes, counterplay and balance</summary>
+        <p><b>In each mode:</b> <span id="charMn"></span></p>
+        <p><b>How to beat it:</b> <span id="charCp"></span></p>
+        <p><b>Why these numbers:</b> <span id="charBal"></span></p>
+        <p><b>What changed:</b> <span id="charChg"></span></p>
+      </details>
+      <div class="clegend" id="charLegend"><b>Rarity (chance per roll · cooldown):</b>
+        <button data-r="common" style="--rc:#8FA3B8">Common 52% · 12–14 s</button>
+        <button data-r="rare" style="--rc:#3D8BFF">Rare 28% · 16–18 s</button>
+        <button data-r="epic" style="--rc:#B26BFF">Epic 14% · 20–22 s</button>
+        <button data-r="legendary" style="--rc:#FFB21A">Legendary 5% · 24–26 s</button>
+        <button data-r="mythic" style="--rc:#FF3B6B">Mythic 1% · 28–30 s</button>
+        <span class="cnote">Rarer means flashier, more complex and more situational, never stronger: a longer cooldown pays for a bigger effect, so power per minute is the same in every rarity. Tap a rarity to jump to it, or <button class="linkbtn" id="charRollLink">🎲 open the roll</button>.</span></div>
+    </div>
+  </div>
+</div>
+<div class="rules" id="roll" hidden role="dialog" aria-modal="true" aria-labelledby="rollTitle">
+  <div class="rbox card xbox">
+    <div class="rhead"><h2 id="rollTitle">🎲 Roll a style</h2><button id="rollClose" aria-label="Close the roll">✕</button></div>
+    <div class="rbody xbody">
+      <div class="xbar">
+        <div class="xwallet" aria-live="polite"><span class="xcoin" aria-hidden="true">🪙</span><b id="rollCoins">300</b><span>coins</span><span class="xsmall">· a roll costs 100</span><span class="xfree" id="rollFree"></span></div>
+        <div class="xbarb"><button id="rollPlay" title="Adds a random tournament payout: 20 (out in Match 1) to 150 (champion), plus a small performance bonus">🏆 Play a tournament</button><button id="rollAdd">+ 500 coins (demo)</button></div>
+      </div>
+      <div class="xslots" id="rollSlots" role="group" aria-label="Your style slots (keys 1, 2, 3)"></div>
+      <div class="xcur" id="rollCur"></div>
+      <div class="xstage" id="rollStage">
+        <div class="xrays" aria-hidden="true"></div>
+        <div class="xreel" id="rollReel" aria-hidden="true"><div class="xstrip" id="rollStrip"></div></div>
+        <div class="xcard" id="rollCard" aria-hidden="true"></div>
+        <div class="xidle" id="rollIdle"></div>
+        <div class="xbanner" id="rollBanner" aria-hidden="true"></div>
+        <canvas class="xfx" id="rollFx" aria-hidden="true"></canvas>
+        <div class="xflash" id="rollFlash"></div>
+        <div class="xtoast" id="rollToast" role="status"></div>
+      </div>
+      <div class="xact">
+        <button id="rollSpin" class="go xspin">🎲 Roll</button>
+        <label class="xq"><input type="checkbox" id="rollQuick"> Quick roll</label>
+        <span class="xmsg" id="rollMsg" aria-live="polite"></span>
+      </div>
+      <div class="xres" id="rollRes" aria-live="polite"></div>
+      <div class="xpity" id="rollPity"></div>
+
+      <h3>Odds of every roll</h3>
+      <p class="xsmall" id="rollBook"></p>
+      <div class="tscroll"><table class="ctab xodds" id="rollOdds"></table></div>
+      <p class="xsmall">The game first draws the rarity, then one style inside it with equal chance. <b>With guarantees</b> is what players really get over many rolls once the guarantees below are counted (2-million-roll simulation). <b>Your next roll</b> turns yellow when a guarantee changes it. Tap a style to see it in 3D.</p>
+
+      <h3>Last 10 rolls</h3>
+      <ol class="xhist" id="rollHist"></ol>
+
+      <h3>Prove the odds</h3>
+      <p class="xsmall">Runs the real roll code (same random source and the same guarantees) many times from a fresh account and compares what came out with the published odds. It doesn't touch your coins.</p>
+      <div class="cbtns"><button id="rollSim">🧪 Simulate 1,000 rolls</button><button id="rollSimBig">Simulate 100,000</button></div>
+      <div class="xsim" id="rollSimOut"></div>
+
+      <h3>How rolling works</h3>
+      <ul class="xrules">
+        <li><b>Cost:</b> 100 coins per roll. New players start with 300 coins and one free roll that is guaranteed Rare or better. Coins come only from playing (about 40 per tournament, about 200 per hour) and from daily quests; they are <b>never sold for Robux</b>.</li>
+        <li><b>What a roll does:</b> pick a slot (keys 1, 2, 3) and roll. The game draws a rarity (Common 52%, Rare 28%, Epic 14%, Legendary 5%, Mythic 1%), then one style inside it with equal chance. Then you choose <b>Keep new</b> (it replaces that slot) or <b>Keep current</b> (the slot stays as it was). The coins are spent either way, so a roll can never take away a style you like by accident. An empty slot keeps the new style automatically. Rolling again while a choice is open keeps your current style.</li>
+        <li><b>Slots and locks:</b> slot 1 from the start; slot 2 at account level 5 or for 1,500 coins; slot 3 at level 15, for 4,000 coins or 149 Robux (all 3 are open in this demo). Each slot has a free 🔒 lock: a locked slot can't be rolled. Slots are storage only.</li>
+        <li><b>One style per tournament:</b> before a tournament, pick your active slot in the lobby. That style is locked for all 7 games and shown on your intro card. You can only roll in the lobby, never during a tournament.</li>
+        <li><b>Keys in a match:</b> <span class="kbd">1</span> your style's ability (cooldown), <span class="kbd">G</span> its Awakening at 100 aura, <span class="kbd">2</span> the power-up crate you carry (Match 3), <span class="kbd">3</span> comms wheel (tap: “Pass!” / “Shoot!” ping, hold: pings and emotes).</li>
+        <li><b>Guarantees (pity):</b> Epic or better within 10 rolls, Legendary or better within 50, the Mythic within 200. Hitting a rarity resets its counter and every counter below it. The counters are shared by coin rolls, free rolls and any Robux spins and never reset over time. A guaranteed result never gives a style you hold in a slot.</li>
+        <li><b>Duplicates:</b> if you roll a style that is already in one of your slots, the slot stays as it is, you get coins back (Common 25, Rare 40, Epic 60, Legendary 100, Mythic 200) and the style gains a <b>Mastery Star</b>. Rolling any style you have rolled before also gives it a Star (max 5). Stars are cosmetic only: colour palettes, a scoreboard banner, a gold Awakening.</li>
+        <li><b>Style Book:</b> every style you roll is recorded there, even after you roll it away. Completing a rarity row pays Common 200, Rare 300, Epic 500, Legendary 1,000 coins.</li>
+        <li><b>Robux at launch:</b> no paid random rolls. Robux buys one specific style from a Style Shop that rotates daily (Common 75, Rare 150, Epic 300, Legendary 600 R$; the Mythic is coins only), slot 3, or cosmetics. If paid Style Spins are ever added, they use exactly these odds and counters, the full odds table is shown before any Robux is spent, and they are hidden for players where paid random items are restricted (Roblox PolicyService). Styles can never be traded.</li>
+        <li><b>Announcements and bots:</b> Legendary and Mythic rolls are announced to the whole server. Bots fill empty places with random styles from the same table, but never the Mythic, so an Hourglass on the pitch is always a real player.</li>
+      </ul>
+      <p><button id="rollReset">↺ Reset the demo</button> <span class="xsmall">Demo progress is saved in this browser only.</span></p>
     </div>
   </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 document.querySelectorAll('.ctab').forEach(t=>{const hs=[...t.querySelectorAll('thead th')].map(h=>h.textContent);t.querySelectorAll('tbody tr').forEach(r=>[...r.children].forEach((td,i)=>td.setAttribute('data-label',hs[i]||'')));});
-(function(){[['rules','rulesBtn','rulesClose'],['ctrls','ctrlsBtn','ctrlsClose'],['chars','charsBtn','charsClose']].forEach(([m,bt,cl])=>{const r=document.getElementById(m),b=document.getElementById(bt),c=document.getElementById(cl);
+(function(){[['rules','rulesBtn','rulesClose'],['ctrls','ctrlsBtn','ctrlsClose'],['chars','charsBtn','charsClose'],['roll','rollBtn','rollClose']].forEach(([m,bt,cl])=>{const r=document.getElementById(m),b=document.getElementById(bt),c=document.getElementById(cl);
   const close=()=>{r.hidden=true;b.focus();};b.onclick=()=>{document.querySelectorAll('.rules').forEach(x=>x.hidden=true);r.hidden=false;c.focus();};c.onclick=close;
   r.addEventListener('click',e=>{if(e.target===r)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!r.hidden)close();});});})();
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.open+'Btn');if(t)t.click();}));
+/* keep Tab focus inside the open dialog */
+document.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const d=document.querySelector('.rules:not([hidden])');if(!d)return;
+  const f=[...d.querySelectorAll('button,[href],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;
+  const a=f[0],z=f[f.length-1],cur=document.activeElement;
+  if(e.shiftKey&&(cur===a||!d.contains(cur))){e.preventDefault();z.focus();}else if(!e.shiftKey&&(cur===z||!d.contains(cur))){e.preventDefault();a.focus();}});
 (function(){
 const COLORS=['#3D8BFF','#FF4D4D','#FFC233','#3CCB7F','#B26BFF','#FF7AC6'];
 const NEUTRAL='#EDE8F7', LOSER='#9A8F98';
@@ -2572,7 +2830,7 @@ function showRed(){
 }
 redBtn.onclick=()=>{if(STEPS[cur].red&&redView)go(cur+1);else if(redView)go(cur);else showRed();};
 prev.onclick=()=>go(cur-1);next.onclick=()=>go(cur+1);
-addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+addEventListener('keydown',e=>{if(document.querySelector('.rules:not([hidden])'))return;if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
 document.getElementById('zin').onclick=()=>{goal.r=Math.max(14,goal.r*0.8);};
 document.getElementById('zout').onclick=()=>{goal.r=Math.min(fitR(span)*1.2,goal.r*1.25);};
 
@@ -2757,30 +3015,43 @@ frame();
 <script>
 /* ===== 3D character viewer with aura ===== */
 (function(){
-  /* classes: the stronger the character, the longer the cooldown (matches last 2–3 min) */
-  const CLS={Z:{n:'Zwykła',c:'#8FA3B8'},R:{n:'Rzadka',c:'#3D8BFF'},E:{n:'Epicka',c:'#B26BFF'},L:{n:'Legendarna',c:'#FFB21A'}};
+  /* rarities: rarer = flashier, more complex and more situational, never stronger (power per minute is equal in every tier) */
+  const CLS={common:{n:"Common",c:"#8FA3B8",p:52,cd:"12–14 s",ph:"One clear number or one simple trick, easy for both sides to read. Shortest cooldown, many small uses."},
+    rare:{n:"Rare",c:"#3D8BFF",p:28,cd:"16–18 s",ph:"One twist on a basic action that rewards timing and positioning."},
+    epic:{n:"Epic",c:"#B26BFF",p:14,cd:"20–22 s",ph:"Acts on rivals or the ball, always with a limit rivals can see."},
+    legendary:{n:"Legendary",c:"#FFB21A",p:5,cd:"24–26 s",ph:"High skill ceiling: reads or borrows from other players."},
+    mythic:{n:"Mythic",c:"#FF3B6B",p:1,cd:"28–30 s",ph:"One chase style: the biggest show on the Legendary power budget."}};
+  const RK=['common','rare','epic','legendary','mythic'];
+  /* the 20 styles. fx = 3D effect key; a key without a built effect falls back to the generic aura (see FXK below).
+     TEL is fixed: ability telegraph 0.5 s, Awakening telegraph 1 s. da / dw = ability / Awakening duration in s. */
   const CH=[
-    {n:'Zryw',k:'R',st:'szybkość',c:'#FF4D4D',c2:'#FFB0A0',cd:20,s:'Ustalona',fx:'speed',ab:'Przez 3 s biegasz z prędkością 175% (o 75% szybciej niż normalnie). Zapowiedź (0,5 s, widzą ją rywale): przy stopach zbierają się czerwone iskry. Potem spod stóp wyskakują czerwone kręgi, a przy nogach świszczą krótkie smugi wiatru.',aw:'7 s ogromnej prędkości z czerwoną smugą za plecami i zerowym zużyciem staminy. Zapowiedź (1 s, widzą ją rywale): przysiad jak sprinter na starcie, czerwony znak na ziemi zaciska się wokół stóp, a iskry ściągają się do nóg. Potem wybuch czerwonej fali i kurzu spod nóg, potem bieg w tunelu prędkości: smugi światła mkną obok, po ciele przeskakują czerwone błyskawice, płonie czerwona aura, a za tobą zostają powidoki i świecący ślad na ziemi.'},
-    {n:'Taniec',k:'R',st:'drybling',c:'#FFC233',c2:'#FF7AC6',cd:18,s:'Ustalona',fx:'dance',ab:'Przez 5 s cooldown dryblingu jest o połowę krótszy. Zapowiedź (0,5 s, widzą ją rywale): piłka zaczyna podskakiwać ci na stopie i pojawiają się pierwsze nutki. Animacja: wokół stóp wirują złote i różowe nutki, a pod nogami w rytm dryblingu zapalają się świecące ślady kroków.',aw:'6 s dryblingów bez cooldownu i bez kosztu staminy. Pierwszy wślizg rywala mijasz automatycznie piruetem. Zapowiedź (1 s): piruet z podbiciem piłki, a od stóp rozlewa się świecący parkiet. Animacja: pod tobą parkiet z płytkami migającymi w rytm, nad głową kula disco z kolorowymi światłami, piłka krąży wokół ciebie, obok tańczą dwa hologramy-sobowtóry, a w górę lecą nutki.'},
-    {n:'Metawizja',k:'L',st:'wolej i czas',c:'#3D8BFF',c2:'#A8D2FF',cd:28,s:'Ustalona',fx:'time',ab:'Przez 4 s twoje woleje i przewrotki mają 1,5× większą siłę strzału. Zapowiedź (0,5 s, widzą ją rywale): pod stopami pojawia się mały niebieski zegar, którego wskazówka gwałtownie się kręci. Animacja: noga do strzału świeci na niebiesko, wokół stopy wirują niebieskie iskry, a każdy wolej zostawia za piłką niebieską smugę.',aw:'Zatrzymanie czasu: przez 5 s wszyscy inni gracze na boisku i piłka, gdy jej nie masz, poruszają się w zwolnionym tempie (40% prędkości). Ty grasz normalnie. Zapowiedź (1 s): wskazówki zegara pod stopami wirują coraz szybciej i rozlega się tykanie. Animacja na całe boisko: z twojego miejsca rozchodzi się niebieska kopuła, na murawie pojawia się ogromna tarcza zegara z ledwo pełzającymi wskazówkami, całe boisko blednie na niebiesko-szaro, pył i iskry zawisają w powietrzu, a zwolnieni rywale ciągną za sobą powidoki.'},
-    {n:'Aksamitne przyjęcie',k:'Z',st:'przyjęcie',c:'#E8E8FF',c2:'#FFFFFF',cd:14,s:'Pominięta',ab:'Na razie pominięta: przyjęcie piłki jest takie samo dla każdego gracza, więc ta postać nie może go ulepszać. Do wymyślenia od nowa później.',aw:'Do wymyślenia razem z nową umiejętnością.'},
-    {n:'Król',k:'E',st:'siła',c:'#B26BFF',c2:'#FFC94A',cd:24,s:'Ustalona',fx:'king',ab:'Przez 3 s nie da się ci odebrać piłki od przodu. Zapowiedź (0,5 s, widzą ją rywale): postać napina ramiona, a pod stopami błyska fioletowy krąg. Animacja: przed postacią pojawia się rycerska tarcza: fioletowa, ze złotym obramowaniem, krzyżem i koroną. Rywal, który wjeżdża w nią od przodu, odbija się z iskrami.',aw:'Tryb króla, 5 s: w biegu odpychasz każdego rywala, który się zbliży, a twój strzał leci 2× szybciej i nie da się go zablokować ciałem (przelatuje przez blokującego). Zapowiedź (1 s): z góry opada złota korona i ląduje ci na głowie, a pod stopami rozkwita królewski herb. Animacja: korona świeci, wokół płonie fioletowo-złota aura. Odepchnięci rywale odlatują do tyłu, koziołkując w powietrzu, z falą uderzeniową i gwiazdkami. Strzał leci ze złoto-fioletowym ogniem i przebija się przez blokującego rywala.'},
-    {n:'Armata',k:'R',st:'moc strzału',c:'#FF7A1A',c2:'#FFD08A',cd:18,ab:'Następny strzał ładuje się mocniej.',aw:'Strzał z dowolnej odległości z ogromną mocą i falą uderzeniową.'},
-    {n:'Łuk',k:'Z',st:'podkręcenie',c:'#2EE6FF',c2:'#B8F7FF',cd:15,ab:'Następny strzał ma dwa razy większe podkręcenie.',aw:'Strzał, który skręca dwa razy w locie.'},
-    {n:'Kameleon',k:'L',st:'cień i kopiowanie',c:'#6A3DB8',c2:'#B08AFF',cd:30,s:'Ustalona',fx:'cham',ab:'Kopiuje lekką umiejętność najbliższego rywala i możesz jej raz użyć. Zapowiedź (0,5 s, widzą ją rywale): ciało ciemnieje, a pod stopami rozlewa się kałuża cienia. Animacja: z twojego cienia wypełza po ziemi czarna macka, wsuwa się w cień rywala i wyciąga z niego świecącą kulę jego umiejętności. Kula przypływa do ciebie, otoczona cieniem, i krąży nad głową, dopóki jej nie użyjesz. Z kałuży unosi się ciemny dym.',aw:'Kradnie cień rywala: kopiuje jego Awakening, nawet jeśli on go jeszcze nie ma, i od razu go odpala. Zapowiedź (1 s): rozpływasz się w cień, ciało staje się półprzezroczyste, a kałuża cienia rośnie. Animacja: cień rywala odrywa się od jego stóp, sunie po ziemi do ciebie i wstaje za twoimi plecami jako czarny sobowtór z poświatą w kolorze rywala. Otacza cię mroczna aura, wokół krążą smugi cienia i unosi się gęsty dym.'},
-    {n:'Rozgrywający',k:'Z',st:'podania',c:'#7CE3FF',c2:'#FFFFFF',cd:12,ab:'Następne podanie jest szybsze i celniejsze.',aw:'Podanie, którego nie da się przechwycić. Kolega, który je dostanie, ma mocniejszy strzał.'},
-    {n:'Akrobata',k:'R',st:'cyrk i przewrotki',c:'#FF7AC6',c2:'#FFE066',cd:18,s:'Ustalona',fx:'acro',ab:'Sprężyna: przez 4 s skaczesz dużo wyżej. Zapowiedź (0,5 s, widzą ją rywale): klaśnięcie w dłonie i obłoczek białej magnezji jak u gimnastyka. Animacja w meczu: biegasz normalnie. Dopiero gdy skoczysz, pod stopami na ułamek sekundy wyskakuje mała trampolina, ugina się, wyrzuca cię w górę i od razu znika. Przy wybiciu sypie się magnezja, a w powietrzu z dłoni ciągnie się różowa wstęga. Co drugi skok to salto.',aw:'Wielki numer cyrkowy, 6 s: woleje i przewrotki są wybuchowe i trafiają z dużo większej odległości. Zapowiedź (1 s): z góry pada snop reflektora, który przez cały Awakening chodzi za tobą. Animacja w meczu: na co dzień tylko reflektor nad tobą i błysk wstęg przy skokach. Gdy uderzysz wolejem albo przewrotką, odpala się pełny numer: wybicie w górę, przewrotka ze wstęgami z obu stóp, na torze lotu piłki pojawia się płonąca obręcz cyrkowa, piłka przez nią przelatuje, obręcz bucha ogniem i wybucha konfetti. Lądowanie z ukłonem i chmurą magnezji.'},
-    {n:'Wieża',k:'Z',st:'gra głową',c:'#9AA6FF',c2:'#DCE0FF',cd:14,ab:'Następna główka jest mocniejsza i ma większy zasięg.',aw:'Gigantyczny skok i główka, która leci jak strzał.'},
-    {n:'Ściana',k:'E',st:'obrona',c:'#5ED36A',c2:'#C8F5CC',cd:22,s:'Ustalona',fx:'wall',ab:'Przez 3 s twoje bloki i wślizgi mają większy zasięg. Zapowiedź (0,5 s, widzą ją rywale): tupnięcie, od którego ziemia pęka i unosi się pył. Animacja: na przedramionach i goleniach wyrastają kamienne ochraniacze, wokół pasa krążą odłamki skał, a na ziemi kamienie wyznaczają krąg, w którym sięgasz do piłki.',aw:'Ściana, 5 s: za twoimi plecami wyrasta mur fortecy, trochę wyższy i szerszy od ciebie. Mur przesuwa się razem z tobą i zatrzymuje każdy strzał, który w niego trafi. Zapowiedź (1 s): ziemia drży, pęknięcia rozchodzą się spod stóp, a z gruntu wysuwają się pierwsze kamienie. Animacja: mur rośnie z ziemi rząd po rzędzie, na górze ma blanki, pośrodku wisi zielony sztandar, a po bokach płoną pochodnie. Piłka, która w niego uderza, odbija się w chmurze kurzu.'},
-    {n:'Impakt',k:'E',st:'szybki strzał',c:'#FFD23F',c2:'#FFFFFF',cd:22,s:'Ustalona',fx:'impact',ab:'Następny strzał ładuje się dwa razy szybciej. Zapowiedź (0,5 s, widzą ją rywale): noga cofa się, a powietrze wokół stopy zaczyna drgać jak nad rozgrzanym asfaltem. Animacja: wokół nogi zaciskają się złote pierścienie energii jak napinana sprężyna, a od stopy rozchodzą się kręgi drgającego powietrza. Obok postaci hologram paska siły napełnia się w mgnieniu oka.',aw:'Impakt: natychmiastowy strzał z pełną mocą, bez ładowania. Zapowiedź (1 s): świat „robi wdech”: wielka bańka energii i pył z całej okolicy zasysają się do twojej stopy. Animacja: kopnięcie z błyskiem jak klatka z komiksu, z promienistymi liniami dookoła. Piłka przebija barierę dźwięku: owija ją biały stożek pary, za nią wybuchają kolejne pierścienie fali uderzeniowej, a pod nogą zostaje pęknięty krater. Kamera drży.'},
-    {n:'Analityk',k:'L',st:'taktyka',c:'#8A8FA8',c2:'#E0E4F5',cd:30,ab:'4 s podglądu, którzy rywale w pobliżu mają gotowe umiejętności.',aw:'Rywal, w którego celujesz, nie może używać umiejętności przez 6 s.'},
-    {n:'Cień',k:'E',st:'ninja',c:'#5A3DFF',c2:'#C9A8FF',cd:25,s:'Ustalona',fx:'ninja',ab:'Bomba dymna: przez 2 s znikasz cały, rywale cię nie widzą. Zapowiedź (0,5 s, widzą ją rywale): sięgasz do pasa po kulkę bomby dymnej. Animacja: rzucasz ją pod nogi, wybucha fioletowy dym, sypią się płatki i znikasz. Gdy biegniesz niewidzialny, zostają po tobie tylko gasnące ślady stóp i lekkie drganie powietrza. Na koniec pojawiasz się znów w kłębie dymu.',aw:'Teleport za plecy najbliższego obrońcy. Zapowiedź (1 s): pod stopami zapala się fioletowa pieczęć ninja z wirującymi znakami. Animacja: rozpływasz się w dym, zostawiając za sobą ciemny powidok, przez boisko przemyka fioletowa smuga i pojawiasz się za obrońcą z cięciem w kształcie półksiężyca. Obrońca kręci się zdezorientowany ze znakiem zapytania nad głową.'},
-    {n:'Wilk',k:'Z',st:'pressing',c:'#7FA8C9',c2:'#DDF3FF',cd:14,s:'Nowa',fx:'wolf',da:4,dw:5,ab:'Trop: przez 4 s widzisz świecący trop rywala z piłką, nawet gdy zasłaniają go inni gracze, a biegnąc w jego stronę jesteś o 15% szybszy. Zapowiedź (0,5 s, widzą ją rywale): pochylasz się nisko i węszysz, a oczy zapalają się lodowato niebieskim światłem. Animacja: od twoich stóp do rywala z piłką prowadzi ścieżka świecących śladów łap, a nad twoimi ramionami unosi się półprzezroczysty łeb wilka, który cały czas patrzy na piłkę.',aw:'Wycie, 5 s: rywale w promieniu ok. 8 m na 1 s stają w miejscu, a potem ty i koledzy z drużyny w tym kręgu biegniecie o 20% szybciej w stronę piłki. Zapowiedź (1 s): za tobą wschodzi wielki księżyc, a ty zadzierasz głowę do wycia. Animacja: z ust wychodzi fala dźwięku, a po ziemi przetaczają się niebieskie pierścienie. Wokół ciebie biegnie sfora trzech widmowych wilków, a nad zaskoczonymi rywalami błyskają wykrzykniki.'},
-    {n:'Lodowiec',k:'R',st:'lód i wślizg',c:'#4FC3FF',c2:'#E6FAFF',cd:19,s:'Nowa',fx:'ice',da:3,dw:5,ab:'Lodowy ślad: przez 3 s twój wślizg zostawia za sobą pas lodu (ok. 6 m), który topnieje po 3 s. Rywal, który na niego wbiegnie, ślizga się jak w hokeju: trudno mu hamować i skręcać. Zapowiedź (0,5 s, widzą ją rywale): z ust ulatuje obłoczek pary, a buty pokrywa szron. Animacja: wślizg zostawia za sobą błyszczący pas lodu z kryształkami po bokach, spod butów sypią się płatki śniegu, a rywal, który wbiegnie na lód, kręci się i sunie bokiem.',aw:'Zamieć, 5 s: murawa wokół ciebie (krąg ok. 10 m, który jedzie razem z tobą) zamarza. Rywale w kręgu ślizgają się i nie mogą sprintować, a ty jeździsz na lodowych łyżwach o 20% szybciej. Zapowiedź (1 s): wokół ciebie zaczyna wirować śnieg, a z ziemi wyrastają pierwsze lodowe kryształy. Animacja: pod tobą rozlewa się krąg lodu z pękającym wzorem, na jego brzegu sterczą kryształy, w powietrzu wiruje zamieć, a pod butami świecą ostrza łyżew. Suniesz po lodzie jak łyżwiarz, a rywal w kręgu traci równowagę.'},
-    {n:'Iluzjonista',k:'E',st:'podania i iluzje',c:'#E0457B',c2:'#FFD86B',cd:23,s:'Nowa',fx:'magic',da:4,dw:6,ab:'Sztuczka: twoje następne podanie (w ciągu 4 s) samo omija łukiem pierwszego rywala na swojej drodze. Zapowiedź (0,5 s, widzą ją rywale): w dłoni pojawia się karta, którą obracasz w palcach. Animacja: piłka zostawia za sobą złoty pył i gwiazdki, a gdy rywal próbuje ją przeciąć, piłka zgrabnie go okrąża, a w miejscu, gdzie miał ją złapać, wybucha chmurka kart.',aw:'Wielki finał, 6 s: każde twoje podanie i strzał wypuszcza też fałszywą piłkę-hologram, która leci w inną stronę. Rywale i bramkarz widzą dwie piłki i nie wiedzą, którą bronić. Hologram znika po 1,5 s. Zapowiedź (1 s): z ziemi wysuwa się cylinder magika, wyskakuje z niego piłka, a z góry padają dwa reflektory. Animacja: na głowie masz cylinder, wokół krąży wachlarz kart, a każdy strzał rozdwaja się w powietrzu na prawdziwą piłkę i migoczący fioletowy hologram, który na końcu rozsypuje się w karty.'},
-    {n:'Feniks',k:'E',st:'stamina i ogień',c:'#FF6A1F',c2:'#FFD23F',cd:24,s:'Nowa',fx:'phoenix',da:3,dw:6,ab:'Żar: od razu odnawia 50 staminy, a przez 3 s stamina wraca nawet podczas sprintu. Zapowiedź (0,5 s, widzą ją rywale): zaciskasz pięści, a spod stóp unosi się popiół i pierwsze iskry. Animacja: na plecach rozkładają się płonące skrzydła, jednym machnięciem wypuszczają chmurę iskier, a pasek staminy nad głową napełnia się ognistą falą.',aw:'Odrodzenie, 6 s: stamina wraca do pełna, a jeśli w tym czasie rywal odbierze ci piłkę, raz wybuchasz płomieniem: rywal zostaje odepchnięty, a piłka wraca pod twoją nogę. Zapowiedź (1 s): rozsypujesz się w kupkę żarzącego się popiołu, z której bucha słup ognia. Animacja: z ognia wstajesz z wielkimi płonącymi skrzydłami i ogonem z piór, wokół sypią się płonące pióra, a nad głową krąży ognisty ptak. Gdy rywal zabierze ci piłkę, wybucha ognisty pierścień, rywal odlatuje, a piłka wraca do ciebie z ognistą smugą.'},
-    {n:'Grom',k:'L',st:'burza i odbiór',c:'#FFD23F',c2:'#7FE8FF',cd:29,s:'Nowa',fx:'storm',da:3,dw:5,ab:'Błysk: twój następny wślizg (w ciągu 3 s) to błyskawica: przelatujesz po ziemi dwa razy dalej i szybciej, w linii prostej. Zapowiedź (0,5 s, widzą ją rywale): włosy stają dęba, a po ciele przeskakują drobne iskry. Animacja: wślizg zamienia się w żółto-błękitny błysk, za tobą zostaje w murawie wypalony zygzak błyskawicy, a w miejscu uderzenia trzaska wyładowanie i piłka odskakuje od rywala.',aw:'Burza, 5 s: nad tobą zbiera się chmura burzowa. Co 1,5 s piorun uderza w najbliższego rywala z piłką w promieniu ok. 12 m: piłka odskakuje mu od nogi, a on na 0,5 s jest ogłuszony (najwyżej 3 pioruny). Zapowiedź (1 s): niebo ciemnieje, a nad tobą kłębi się chmura, która rozbłyskuje od środka. Animacja: unosisz się lekko nad ziemią w żółto-błękitnej aurze, między dłońmi przeskakują łuki prądu, a z chmury walą pioruny w rywali. Po uderzeniu zostaje osmalony krąg i iskry, a piłka podskakuje.'}
-  ].map(c=>Object.assign({s:'Szkic'},c)).filter(c=>c.s==='Ustalona'||c.s==='Nowa');
+    {id:"burst",n:"Burst",was:"Zryw",k:"common",st:"speed",c:"#FF3B3B",c2:"#FFB0A0",cd:13,fx:"speed",da:3,dw:5,sa:"+30% speed for 3 s (+20% with the ball)",sw:"Redline: 5 s at the +35% cap, free sprint",ab:"Burst: for 3 s you run 30% faster (20% faster with the ball). Stamina use is unchanged. Telegraph (0.5 s, rivals can see it): red sparks gather around your boots. Animation: red rings pop out of the turf with every stride, and short wind streaks whip past your legs.",aw:"Redline, 5 s: you run 35% faster (25% faster with the ball), which is the global speed cap, and sprinting costs no stamina. Slide tackles and blocks work on you as normal. Telegraph (1 s, rivals can see it): you drop into a sprinter's crouch, a red ring tightens around your feet and sparks are sucked into your legs. Animation: a red shockwave and a burst of dust at launch, then you run inside a tunnel of light streaks, with red lightning crawling over your body, a red flame aura, three afterimages and a glowing track burned into the turf behind you.",mn:"Team matches and Bomb: as written. Hot Potato: as written. Cooldowns reset each round, so you get about 2 uses per round; it helps you escape or chase, and the small with-ball bonus means the holder can't simply run someone down. 1v1v1v1 (AI keeper): wins races to loose balls; the keeper is unaffected. Final: as written; a defender who is already goal-side keeps up. Basketball and volleyball: no jump change; it helps you reach the gold landing ring first. Hockey: higher top speed but no extra grip, so you overshoot turns. Crates: the speed crate doesn't stack (the higher bonus applies, capped at +35%).",cp:"The 1 s crouch is the cue to drop off instead of stepping in. With the ball the bonus is only 20–25%, so a defender who is goal-side still meets them. There is no tackle protection, so a timed slide wins the ball. Or simply wait out the 3 s.",bal:"This is the reference unit of the whole roster: +30% for 3 s every 13 s (23% uptime) = value 1.0. Speed is the most universally useful stat, so it gets the smallest number in the Common tier. The with-ball bonus is lower because speed with the ball is what beats defenders. Redline sits exactly at the +35% cap, so nothing can stack on top of it.",chg:"Rare → Common: the simplest effect makes the ideal starter. +75% → +30% (+20% with the ball); cooldown 20 → 13 s. Awakening: 7 s of unnumbered 'huge speed' (the longest Awakening on the roster) → 5 s at +35% (+25% with the ball), free stamina kept. Renamed Zryw → Burst, and the Awakening is named Redline."},
+    {id:"swerve",n:"Swerve",was:"Łuk",k:"common",st:"curve",c:"#12D6C4",c2:"#B8FFF6",cd:13,fx:"swerve",da:4,dw:5,sa:"next shot curves up to 2×",sw:"Double Bend: one S-shaped shot",ab:"Bend: your next shot or lob within 4 s can curve up to twice as much as normal, and your shot line shows the full bend. As with normal curve, a strongly bent ball loses up to 10% speed. Telegraph (0.5 s, rivals can see it): a teal spiral wraps around your kicking boot. Animation: the ball spins with a teal stripe and leaves a curved teal ribbon in the air that hangs for 1 s, so everyone can read its path.",aw:"Double Bend, 5 s: your next shot or lob within 5 s bends twice. It curves one way, then after 60% of its flight it swaps direction once; you set the second bend by moving the mouse the other way while charging. The ball leaves a teal trail everyone can see. Telegraph (1 s, rivals can see it): two teal arcs draw an S on the ground in front of you, and the ball spins in place at your feet. Animation: the ball flies inside a corkscrew of light, flashes with a ring of sparks at the turn point and snaps into the second bend, leaving an S-shaped glowing trail in the air.",mn:"Team matches, Hockey and Bomb: as written. Hot Potato: aim assist is off for bent kicks, so the two don't add up; the bend lets you hit a rival hiding behind another player. 1v1v1v1 and Final: the AI keeper re-reads the ball at the turn point with its normal reaction time, so it saves fewer of these shots, but never none. Basketball: bends work on hoop shots too, but the hoop is small. Volleyball: the gold landing ring always shows the real landing spot. Crates: no interaction.",cp:"Block at the source: curve doesn't help against a body in front of the boot. The spiral telegraph and the visible trail show the side early. The second bend always goes back the other way, so a keeper who stays central and doesn't dive early saves it. Curved balls are slower.",bal:"Curve is a skill multiplier with a built-in speed tax (value about 1.0). The Awakening is one tricky shot with a visible tell, which fits the shared Awakening budget. The manual second bend means there is no auto-aim.",chg:"Hidden draft Łuk finished and renamed Swerve. Added the 4 s window, the speed tax, the visible trail and a manually set second bend. Cooldown 15 → 13 s. New teal colour, so it no longer clashes with Playmaker's light cyan. Needs a new fx."},
+    {id:"cannon",n:"Cannon",was:"Armata",k:"common",st:"shot power",c:"#FF8A1F",c2:"#FFD08A",cd:14,fx:"cannon",da:4,dw:5,sa:"overcharge the next shot to 120%",sw:"Siege Shot: one 130% shot with no drag",ab:"Heavy Boot: your next shot within 4 s can be overcharged. Keep holding 0.4 s past full power to reach 120% power: the ball is 20% faster and flies flatter. The power bar shows an extra red segment, and releasing earlier gives a normal shot. You can't curve while overcharging. Telegraph (0.5 s, rivals can see it): you stamp once and your boot turns iron-grey with glowing orange seams. Animation: heat haze shimmers around the boot, smoke curls from the sole, and an overcharged shot leaves a muzzle flash at your foot and a short orange tracer.",aw:"Siege Shot, 5 s: your next shot within 5 s reaches 130% power (the global shot cap) and keeps full speed over any distance (no air drag). A field player who body-blocks it is knocked back 1 m, but the block still stops the ball. Telegraph (1 s, rivals can see it): you plant your standing foot, the ground cracks in a ring, and hoops of orange light lock around your shin like a cannon barrel. Animation: the kick fires with a recoil blast, a muzzle flash and a rolling smoke ring; the ball flies as a glowing cannonball with a white-hot core and a long smoke trail, and a blocker is shoved back in a shower of embers.",mn:"Team matches, Hockey and Bomb: as written. Hot Potato: overcharge caps at 110% and Siege Shot at 115%, with no knockback (the chamber is small). 1v1v1v1 and Final: keepers save 130% shots at their normal rate, minus the usual distance difficulty, and are never knocked back. Basketball: the bonus applies only to ground kicks, not to hoop shots. Volleyball: capped at 110%, because the ball already speeds up with every touch. Crates: doesn't stack with the power-shot crate (the higher value applies).",cp:"The overcharge needs 1.4 s of holding, 0.4 s longer than a normal shot, so press the shooter. Siege Shot can still be blocked or saved, and an overcharged shot can't curve. The barrel telegraph gives 1 s to close the lane.",bal:"A sidegrade pair with Snapshot: Cannon is slower and harder, Snapshot is faster and normal. +20% ball speed for 0.4 s more wind-up is a fair trade (value 1.0 on 14 s, the top of the Common band, because it's a direct scoring tool). Siege Shot sits at the 130% cap and stays blockable.",chg:"Hidden draft Armata finished and moved Rare → Common to widen the base of the pyramid. 'Charges stronger' → a 120% overcharge with a 4 s window. 'Shot from any distance with huge power and a shockwave' → 130% with no drag; it stays blockable, and the knockback is only 1 m. Kept separate from Snapshot: Cannon is about how hard you kick, Snapshot about how fast you release. Needs a new fx."},
+    {id:"tower",n:"Tower",was:"Wieża",k:"common",st:"headers",c:"#9AA6FF",c2:"#DCE0FF",cd:13,fx:"tower",da:4,dw:5,sa:"headers +30%, contact 0.3 m higher",sw:"Tower Leap: one jump 50% higher, header like a shot",ab:"Header Pro: for 4 s your headers fly 30% faster and farther, and you can meet the ball 0.3 m higher above your head. Your jump height is unchanged. Telegraph (0.5 s, rivals can see it): you roll your neck, tap your forehead, and a lavender halo flickers above your head. Animation: the halo spins over your head while the ability lasts, and every header flashes a lavender ring and leaves a short lavender streak and a puff of stone dust.",aw:"Tower Leap, 5 s: your next jump within 5 s goes 50% higher (0.3 s wind-up) and you hang for 0.3 s at the top; a header from that jump flies like a full-power shot. After landing you can't jump for 1 s. Telegraph (1 s, rivals can see it): you stamp twice, the ground rumbles, a ring of stone blocks pushes up around your feet and a lavender column of light rises to head height. Animation: a stone pillar erupts under you and lifts you, you hang at the top inside a glowing halo, and the header leaves with a bell-like flash, a lavender comet trail and a ring of stone debris while the pillar crumbles behind you.",mn:"Team matches, Hockey and Bomb: as written (crosses and corners). Modes without passing (Hot Potato, 1v1v1v1, Final): Header Pro also makes your next lob (E) go 25% higher and land 1 s later, so you can run onto your own lob and head it. Hot Potato: a header counts as a kick (you touch the potato and send it on at once), headers redirect it 30% harder, and the Awakening's hang makes you an easy target. Basketball: headers into the hoop score, so the leap is only 25% higher. Volleyball: headers count as strikes, capped at +20%. Crates: the super-jump crate doesn't stack with Tower Leap (the higher value applies, cap +50%).",cp:"Contest the header in the air (the higher contact wins), cut out the cross before it arrives, keep the ball on the ground, or wait out the 1 s landing lockout. The 0.3 s leap wind-up and the stone ring are easy to see.",bal:"The most situational Common (it needs a high ball), so it gets generous numbers inside its niche, which comes to value about 1.0 once the condition is counted. The landing lockout stops chained leaps, and the solo-lob rule keeps it useful in the three modes without crosses.",chg:"Hidden draft Wieża finished and renamed Tower. 'Stronger header with more reach' → +30% header speed and contact 0.3 m higher; the ability no longer adds jump height (that's Acrobat's job). 'Giant jump' → one jump 50% higher with a 0.3 s hang and a 1 s landing lockout. Added the solo-lob rule and the basketball cap. Cooldown 14 → 13 s. Needs a new fx."},
+    {id:"playmaker",n:"Playmaker",was:"Rozgrywający",k:"common",st:"passing",c:"#3CCB7F",c2:"#FFFFFF",cd:12,fx:"playmaker",da:4,dw:6,sa:"next pass +25%, led into the run",sw:"Conductor: faster passes, receivers' next shot +15%",ab:"Through Ball: your next pass or lob within 4 s is 25% faster and is led into your teammate's run, arriving within 0.5 m of where they will be. It can still be intercepted. Telegraph (0.5 s, rivals can see it): you point at a teammate and a chalk line flickers between you. Animation: the pass leaves a straight chalk-white line on the grass and lands with a small mint ring at the receiver's feet.",aw:"Conductor, 6 s: your passes and lobs are 30% faster, and every teammate who receives one is Primed for 3 s: their next shot is 15% stronger. Passes can still be intercepted. Telegraph (1 s, rivals can see it): a baton of light forms in your hand and draws a glowing circle in the air, and a chalk tactics board draws itself on the ground around you. Animation: mint lines link you to your teammates like a pitch diagram, each pass rides a glowing line with a gold thread behind it, and Primed teammates get a mint ring at their feet and glowing boots.",mn:"8v8 and 4v4 (Matches 1–3): full value; strongest with a teammate who finishes. Basketball: Primed adds +15% to hoop shots as speed only, not accuracy. Volleyball: a pass is a set, so the receiver's strike gets the bonus. Bomb: a fast pass helps the bomb team score. Hockey: as written. Hot Potato, 1v1v1v1 and Final (no passing): Through Ball works on your next lob or kick (+25% speed, no lead; +15% in Hot Potato because the chamber is small), and Conductor makes your own shots and lobs 15% stronger for 6 s instead.",cp:"Every pass can still be intercepted. The pointing telegraph shows who will receive, so mark the receiver instead of the lane. Primed teammates glow, so you know whom to close down.",bal:"Team value: weak alone, strong with a finisher, so the numbers are modest and it has the lowest cooldown (12 s). The solo fallbacks keep it at about value 1.0 in the late rounds. It changes pass speed and aim, never how the ball is received, so the 'receiving is identical' rule holds.",chg:"Hidden draft Rozgrywający finished and renamed Playmaker. 'Faster and more accurate' → +25% and led into the run. The uninterceptable pass is removed (no unblockable effects). Added Primed (+15%) and solo fallbacks for the three modes without passing. New mint colour, so it no longer clashes with Swerve. Needs a new fx."},
+    {id:"wolf",n:"Wolf",was:"Wilk",k:"common",st:"pressing",c:"#7FA8C9",c2:"#DDF3FF",cd:14,fx:"wolf",da:4,dw:5,sa:"trail to the ball carrier, +15% toward them",sw:"Howl: 7 m startle, pack +15% toward the ball",ab:"Scent: for 4 s you see a glowing trail to the rival with the ball, even through other players, and you run 15% faster while moving toward them (within a 45° cone; no bonus while you have the ball). Telegraph (0.5 s, rivals can see it): you crouch low and sniff, and your eyes light up icy blue. Animation: glowing paw prints lead from your feet to the ball carrier, and a translucent wolf head floats above your shoulders, always watching the ball.",aw:"Howl, 5 s: rivals within 7 m when it fires are startled: 30% slower for 1.5 s, with no root and no ball loss. For the whole 5 s, you and teammates within 7 m run 15% faster while moving toward the ball (20% for you in modes without teammates). Telegraph (1 s, rivals can see it): a huge moon rises behind you and you throw your head back to howl. Animation: a sound wave bursts from your mouth, blue rings roll across the ground to the 7 m edge, a pack of three ghost wolves circles you and then runs ahead toward the ball, and exclamation marks flash over startled rivals.",mn:"Team matches: as written; it sets up a team press. Hot Potato: no teammates. Scent tracks the potato holder so you can keep away from them (the +15% applies while moving away from the holder), and the startle is 20% within 4 m, so a Howl followed by a kick isn't a free elimination. 1v1v1v1: the startle hits every rival within 7 m, the AI keeper is never slowed, and the boost is +20% for you. Final: the solo version (+20%). Volleyball: the boost applies toward the gold landing ring, and the startle doesn't cross the net. Hockey: startled rivals keep sliding on the ice. Basketball and Bomb: as written. Crates: the startle follows the crowd-control rules (2 s immunity afterwards).",cp:"When the moon rises, leave the 7 m circle, or pass early: Scent and the pack boost only chase the ball. The startle is short, causes no ball loss and gives 2 s of immunity.",bal:"Conditional speed (a direction cone, no ball) is about value 1.0. The Awakening goes from a mass root to a light slow plus a team buff, which fits a Common and the crowd-control rules.",chg:"Awakening: 'rivals stand still for 1 s within about 8 m' → 30% slower for 1.5 s within 7 m. A root on the cheapest tier was the strongest crowd control in the game and a free elimination in Hot Potato. Team bonus 20% → 15%, with a solo fallback of +20%. Defined the 45° cone. Cooldown 14 s kept. Name kept (Wilk → Wolf)."},
+    {id:"ballhawk",n:"Ballhawk",was:"new",k:"common",st:"interception",c:"#C8742E",c2:"#FFE0A8",cd:13,fx:"hawk",da:3,dw:5,sa:"interception reach +1 m, see pass lines",sw:"Talon: reach +2 m, speed burst after each interception",ab:"Keen Eye: for 3 s your interception reach is 1 m wider: you stretch out a leg and the ball deflects into your path. It doesn't stick to your foot, so receiving stays the same for everyone. You also see the flight line of every rival pass and lob the moment it's struck. Telegraph (0.5 s, rivals can see it): you shade your eyes with one hand and an amber feather spins above your head. Animation: an amber scan ring sweeps out from you, an amber ring on the ground marks your reach, rival passes leave thin amber lines on the grass, and every interception snaps with a small burst of feathers.",aw:"Talon, 5 s: your interception reach is 2 m wider, and after each interception you run 25% faster for 1.5 s. Telegraph (1 s, rivals can see it): the shadow of huge wings sweeps over the ground around you, you crouch with your arms spread, and your reach ring slams onto the ground. Animation: ghostly amber wings open on your back and beat slowly; every interception plays a short lunge streak, the wings snap forward, feathers burst with a sharp screech, and an amber trail follows you on the counter-attack.",mn:"Team matches and Bomb: as written; strong at winning the ball back. Volleyball: slide-saves reach 1 m (Keen Eye) or 2 m (Talon) farther. Hot Potato: the reach never makes you the holder. Keen Eye shows the potato's flight line the moment it's kicked, so you can sidestep; during Talon the first potato kicked at you within reach is deflected away and the kicker stays the holder (once per Awakening). 1v1v1v1 and Final (no passes): the reach works on loose balls and on shots that fly past within range, so it acts as a shot block; the AI keeper is unaffected. Basketball: works on passes as written. Hockey: deflections slide farther on ice.",cp:"The amber ring shows exactly how far the reach goes: pass around it, chip over it, dribble instead, or hold the pass for 3 s. During Talon the wings and the ring are visible from across the pitch, so switch play to the other side.",bal:"Fills the missing defender who reads passes instead of sliding; the only Common defender was Wolf. Interceptions only happen when the rival chooses to pass near you, and the deflection (not a clean catch) keeps reception identical. +2 m is the largest reach in the game, but it is passive: no automatic dive or steal. The speed after an interception is short and inside the +35% cap.",chg:"New original style, taken from the economy and spectacle proposals. It makes Common the largest tier, gives every role both an attacker and a defender, and counters the passing styles (Playmaker, Illusionist). The spectacle proposal's automatic 'Swoop' steal was not used, because automatic effects are banned. Needs a new fx."},
+    {id:"groove",n:"Groove",was:"Taniec",k:"rare",st:"dribbling",c:"#FFC233",c2:"#FF7AC6",cd:17,fx:"dance",da:5,dw:6,sa:"stepover and rainbow cooldowns −40% for 5 s",sw:"Showtime: −60% cooldowns, free dribbles, speed after beating a slide",ab:"Footwork: for 5 s your stepover and rainbow-flick cooldowns are 40% shorter (stepover 2 s → 1.2 s, rainbow 4 s → 2.4 s). Stamina costs are unchanged. Telegraph (0.5 s, rivals can see it): the ball starts bouncing on your foot and the first music notes appear. Animation: gold and pink notes swirl around your feet, and glowing footprints light up under you in time with each dribble.",aw:"Showtime, 6 s: stepover and rainbow cooldowns are 60% shorter (0.8 s and 1.6 s) and dribbles cost no stamina. Every dribble that beats a slide tackle makes you 15% faster for 1 s (no stacking). There is no automatic dodge: you still have to time every dribble, and dribbles during Showtime give no aura. Telegraph (1 s, rivals can see it): a pirouette with a flick of the ball, and a glowing dance floor spreads from your feet. Animation: floor tiles flash to the beat, a disco ball with coloured beams hangs above you, the ball circles around you, two hologram dancers copy your moves and notes float upward. Every slide you beat triggers a pirouette with a burst of notes.",mn:"Team matches, Basketball and Bomb: as written. 1v1v1v1 and Final: as written; dribbling is the main tool here. Hot Potato: Footwork and Showtime shorten the stepover you can do while holding the potato, a juke to fake out the rival you're aiming at; it never gives immunity. Volleyball: no dribbling, so Footwork cuts your slide-save cooldown by 40% and Showtime by 60%. Hockey: dribbles on ice work as normal. Crates: no interaction.",cp:"Don't slide into it: jockey, block the path and intercept the next pass, because dribbles only beat slide tackles. Only the first 0.35 s of each dribble beats a slide (global rule), so a slide timed just after a dribble still wins. The dance floor announces 6 s of Showtime, so drop off and wait it out.",bal:"Even with 0.8 s cooldowns, only 0.35 s of each cycle beats a slide (about 44% coverage), so timing still decides. The old version (no cooldown, a free auto-dodge, +10 aura per beaten slide) made you untackleable for 6 s and recharged itself. Value about 1.3 per use on 17 s.",chg:"Ability: −50% for 5 s → −40% for 5 s. Awakening: 'no cooldown, no stamina cost, automatic pirouette on the first slide' → −60% cooldowns, free stamina and a speed reward for beating slides, with no automatic dodge and no aura farming. Added Hot Potato and volleyball versions. Cooldown 18 → 17 s. Renamed Taniec → Groove."},
+    {id:"acrobat",n:"Acrobat",was:"Akrobata",k:"rare",st:"volleys and bicycle kicks",c:"#FF4FD8",c2:"#FFE066",cd:16,fx:"acro",da:4,dw:5,sa:"jump +35% for 4 s",sw:"Big Top: volleys and bicycle kicks +25%, longer hit window",ab:"Spring: for 4 s you jump 35% higher and recover from landings 30% faster. As always, you can't jump with the ball. Telegraph (0.5 s, rivals can see it): you clap your hands and a puff of white chalk rises, like a gymnast. Animation: you run normally; only when you jump does a small trampoline pop up under your feet for a split second, flex, launch you and vanish. Chalk sprays at take-off, a pink ribbon trails from your hands in the air, and every second jump is a somersault.",aw:"Big Top, 5 s: you jump 35% higher, and your volleys and bicycle kicks are 25% stronger (within the 130% shot cap) with a 50% longer hit window, so they are easier to time. Telegraph (1 s, rivals can see it): a spotlight snaps on from above and locks onto you, and a red-and-white circus ring rises around your feet. Animation: the spotlight follows you for the whole Awakening, and a flaming hoop hovers in front of you at shooting height. When you hit a volley or bicycle kick, the full act fires: ribbons stream from both feet, the ball flies through the flaming hoop, the hoop bursts into fire and confetti, and you land with a bow in a cloud of chalk.",mn:"Team matches, Hockey and Bomb: as written. Basketball: points come from jumps, so both jump bonuses are +20%. Volleyball: jump bonuses are +20%, and strikes in the air count as volleys. Hot Potato: Spring is +25% (jumping over a low potato is a dodge), and volley kicks at players are capped at +15%. 1v1v1v1 and Final: volleys come from rebounds and lobs, so it is situational; keepers save normally. Crates: the super-jump crate doesn't stack (the higher value applies, cap +50%).",cp:"Volleys need a bouncing or crossed ball: keep it on the ground near the Acrobat and don't clear it high. The spotlight shows Big Top from across the pitch, and landing is still a vulnerable moment.",bal:"Height and volley power only matter around aerial balls, so per-use value is about 1.3. The longer hit window lowers the skill floor of the hardest shot in the game without raising its ceiling past the 130% cap. Acrobat owns volleys and bicycle kicks, Tower owns headers and Hourglass owns time, so the three no longer overlap.",chg:"'Much higher' → +35% jump, with per-mode caps. 'Explosive volleys from much farther' → +25% power and a 50% longer hit window. Awakening 6 s → 5 s. Added a hovering hoop so the Awakening reads before any volley happens. Cooldown 18 → 16 s. New magenta colour, so it no longer shares Groove's gold-and-pink pair. Renamed Akrobata → Acrobat."},
+    {id:"glacier",n:"Glacier",was:"Lodowiec",k:"rare",st:"ice and slide",c:"#4FC3FF",c2:"#E6FAFF",cd:17,fx:"ice",da:4,dw:5,sa:"next slide leaves a 6 m ice strip",sw:"Whiteout: a 5 m ice ring follows you",ab:"Frost Trail: your next slide tackle within 4 s leaves an ice strip 6 m long and 1.5 m wide that melts after 3 s. Everyone on it except you (teammates too) gets ice footing: 50% less acceleration and turning. Players in the air aren't affected. Telegraph (0.5 s, rivals can see it): a puff of breath vapour leaves your mouth and frost covers your boots. Animation: the slide leaves a glittering ice strip with crystals along its edges, snowflakes spray from your boots, and anyone who runs onto the ice spins and slides sideways.",aw:"Whiteout, 5 s: a ring of ice with a 5 m radius follows you. Rivals inside get ice footing (40% less acceleration and turning), and sprinting there costs double stamina; you skate 15% faster. The ball isn't affected. Telegraph (1 s, rivals can see it): snow starts swirling around you and the first ice crystals push out of the ground at the ring's edge. Animation: a disc of ice with a cracking pattern spreads under you, crystals stand along its edge, a blizzard swirls inside it and skate blades glow under your boots. You glide like a figure skater while rivals in the ring wobble and lose their footing.",mn:"Team matches, Bomb and 1v1v1v1: as written; the strip also catches careless teammates, and the AI keeper ignores ice. Final: as written (5 m is already the radius cap); in the volcano the ice hisses with steam (visual only). Hot Potato: the strip is 4 m long and the ring 4 m. Basketball and volleyball: as written (the sand freezes too); in volleyball the strip only forms on your side of the net. Hockey: everything is already ice, so Frost Trail gives you normal grip for 3 s instead, and Whiteout gives you grip plus 15% speed for 5 s, with no ring. Crates: doesn't stack with the freeze crate.",cp:"Walk around the strip or jump over it; it's bright and lasts only 3 s. The ring's edge is clearly drawn and centred on the Glacier, so stay more than 5 m away, or pass the ball out of the ring: passes and shots work normally inside it.",bal:"A zone debuff with a friendly-fire cost on the strip, value about 1.3. The Awakening radius dropped from about 10 m (a third of a street pitch) to 5 m, and the sprint ban became a stamina cost, so rivals can always escape.",chg:"Ability: added the 4 s window, the strip width and exact ice numbers; the strip now affects teammates too. Awakening: ring of about 10 m → 5 m, 'can't sprint' → double sprint cost, own speed +20% → +15%. Added the Hockey grip version, because the original did nothing on ice. Cooldown 19 → 17 s. Renamed Lodowiec → Glacier, and the Awakening Zamieć → Whiteout."},
+    {id:"ember",n:"Ember",was:"Feniks",k:"rare",st:"stamina and fire",c:"#FF5A1F",c2:"#FFD23F",cd:18,fx:"phoenix",da:3,dw:5,sa:"+35 stamina, regen while sprinting",sw:"Rekindle: free stamina, and the first tackle on you becomes a loose ball",ab:"Second Wind: you instantly get 35 stamina back, and for 3 s your stamina keeps refilling at the normal resting rate even while you sprint. Telegraph (0.5 s, rivals can see it): you clench your fists, and ash and the first sparks rise from under your feet. Animation: burning wings unfold on your back and throw out a cloud of sparks with one beat, and the stamina bar above your head fills with a wave of fire.",aw:"Rekindle, 5 s: your stamina refills to 100, and sprints, slides and dribbles cost nothing. The first time a rival tackles the ball off you in these 5 s, a ring of flame bursts out: the tackler is pushed back 2 m and staggered for 0.4 s, and the ball pops up loose 1 m in front of where you stood. It doesn't return to you: anyone can take it, and the tackler still gets the tackle's aura and points. Telegraph (1 s, rivals can see it): you crumble into a pile of glowing ash and a column of fire bursts out of it. Animation: you rise from the fire with huge burning wings and a tail of feathers, burning feathers drift around you, a firebird circles overhead, and a glowing ring on your chest shows the flame ring is armed. When a rival tackles you, the ring explodes, the rival is thrown back and the ball pops up in a burst of sparks.",mn:"Team matches, Basketball and Bomb: as written; free stamina keeps you pressing. 1v1v1v1 and Final: as written; the loose ball is a real 50/50 (you are about 0.3 s closer, and the tackler is staggered). Hot Potato: reversed, because getting the potato back would blow you up: the first potato that hits you during Rekindle is knocked back toward the kicker by the flame ring, and the kicker stays the holder (once per Awakening; the last-10-s lock applies). Volleyball: there are no tackles, so the ring triggers once on the first ball about to land within 3 m of you and pops it up. Hockey: the loose ball slides farther. Crates: the stagger follows the crowd-control rules.",cp:"Bait the ring: the chest ring shows it's armed, so make a cheap first tackle with a teammate nearby to collect the loose ball, or intercept passes instead (the ring only triggers on tackles). The ash pile is an obvious 1 s warning, and draining stamina before it fires still works.",bal:"35 stamina every 18 s is about one extra sprint (value about 1.3) and keeps stamina management relevant. The Awakening no longer cancels a correct tackle; it only turns it into a contested ball, and the defender keeps the reward.",chg:"Epic → Rare: a stamina tool with one insurance. Instant stamina 50 → 35; cooldown 24 → 18 s. Awakening 6 s → 5 s; the ball no longer returns to your foot, it pops up loose. Added Hot Potato and volleyball versions; the original would have handed the potato back to you. Renamed Feniks → Ember and Odrodzenie → Rekindle, because a fire hero with a rebirth ultimate is too close to a famous shooter character."},
+    {id:"snapshot",n:"Snapshot",was:"Impakt",k:"rare",st:"quick shot",c:"#FFF3C4",c2:"#FFD23F",cd:16,fx:"impact",da:4,dw:5,sa:"shots charge 2× faster for 4 s",sw:"Sound Barrier: 5 s of instant full-power shots",ab:"Quick Load: for 4 s your shots and lobs charge twice as fast (full power in 0.5 s instead of 1 s). Power, speed and accuracy are unchanged. Telegraph (0.5 s, rivals can see it): your kicking leg pulls back and the air around the boot shimmers like heat over asphalt. Animation: gold energy rings tighten around your leg like a spring being wound, rings of shimmering air spread from the boot, and a hologram power bar beside you fills in a blink.",aw:"Sound Barrier, 5 s: every shot and lob you take is full power the instant you press (a tap is a full charge), and curve still works. The first shot is also 10% faster. Telegraph (1 s, rivals can see it): the world breathes in: a big bubble of energy and dust from all around are sucked into your boot. Animation: the kick lands with a comic-panel flash and radial speed lines, the ball breaks the sound barrier inside a white vapour cone with shock rings bursting behind it, a cracked crater is left under your foot and the camera shakes.",mn:"Team matches, Hockey and Bomb: as written. Hot Potato: charging is 1.5× faster instead of 2× because aim assist already helps kicks at players, and Sound Barrier's first kick gets +5%. 1v1v1v1 and Final: the AI keeper keeps its normal reaction time, so the surprise is when you shoot, not an unsavable ball; it works best right after a rival commits to a slide. Basketball: instant power can overshoot the hoop, so it's a sidegrade there. Volleyball: instant full-power strikes on the return. Crates: the power-shot crate doesn't stack with the +10%.",cp:"The breathing-in telegraph warns that shots are coming: close the shooting lane before the 1 s ends. Shots reach only normal full power (+10% on the first), so a set keeper or a blocker still stops them.",bal:"Tempo, not power: removing the wind-up takes time away from defenders. A whole 4 s window instead of a single shot lifts it to Rare value 1.3 on 16 s. The Awakening is 5 s of time denial, not a stronger ball, so it fits the shared Awakening budget.",chg:"Epic → Rare: one simple effect with a timing twist. The 'next shot' buff became a 4 s window covering every shot in it. Awakening: one instant shot played as a 6 s effect (100 aura only saved 1 s of charging) → a clear 5 s window of instant full power plus +10% on the first shot. Cooldown 22 → 16 s. Renamed Impakt → Snapshot, a real football term for a quick shot, which also keeps it apart from Cannon (how fast vs how hard). New white-gold colour, so it no longer shares Tempest's yellow."},
+    {id:"monarch",n:"Monarch",was:"Król",k:"epic",st:"strength",c:"#B26BFF",c2:"#FFC94A",cd:21,fx:"king",da:2.5,dw:5,sa:"front slides bounce off for 2.5 s",sw:"Coronation: each close rival shoved once, +30% shot that can be deflected",ab:"Crest Shield: for 2.5 s, slide tackles that hit you from the front (a 90° cone) don't take the ball, and the slider bounces back 1.5 m. Tackles from the side or behind work as normal, and you move 10% slower while the shield is up. Telegraph (0.5 s, rivals can see it): you square your shoulders and a purple ring flashes under your feet. Animation: a knight's shield appears in front of you, purple with a gold rim, a cross and a crown; a rival who slides into it from the front bounces off in sparks.",aw:"Coronation, 5 s: while you have the ball, rivals who come within 1.5 m are shoved back 2.5 m and staggered for 0.3 s (each rival only once). Your next shot in these 5 s is 30% faster, and a body block deflects it (the ball keeps 40% of its speed) instead of stopping it dead. Goalkeepers are never shoved and save it as normal. Telegraph (1 s, rivals can see it): a golden crown descends onto your head and a royal crest blooms on the ground under your feet. Animation: the crown shines, a purple cape flares out and a purple-and-gold aura burns around you; shoved rivals tumble backward with a shockwave and stars, and the shot flies wrapped in gold-and-purple fire, glancing off any blocker in a burst of sparks.",mn:"Team matches and Bomb: as written. Hot Potato: Crest Shield makes the first potato that hits you from the front bounce off loose, and the kicker stays the holder; Coronation's shove doesn't move the potato, and its kick gets +15%. 1v1v1v1: as written; the AI keeper is never shoved. Final: the shove works once on the only rival, so it buys one step, not a walk-in. Basketball: the +30% applies to ground shots only. Volleyball: no contact across the net, so Coronation gives +30% strike speed only. Hockey: shoved rivals slide 3 m on ice.",cp:"During Crest Shield, tackle from the side or from behind, and use its 10% slowness to get around. Coronation shoves each rival only once, so send two defenders. The shot can be blocked or deflected and keepers save it normally, and the crown gives 1 s to set up.",bal:"A conditional guard with a speed tax, value about 1.6. The Awakening drops the unblockable 2× shot and the shove-everyone aura: one strong chance instead of three stacked effects, and nothing gets past a keeper.",chg:"Ability: 3 s → 2.5 s, with a defined 90° cone and a 10% slow. Awakening: a 2× shot that passes through blockers → +30% and deflectable; the shove now hits each rival once, only while you have the ball, and never keepers. Cooldown 24 → 21 s. Renamed Król → Monarch, because 'King' is the nickname of a famous anime striker with the same physical fantasy; the ability is named Crest Shield to avoid a famous action-game style."},
+    {id:"bulwark",n:"Bulwark",was:"Ściana",k:"epic",st:"defense",c:"#6FAE4E",c2:"#D8F5C0",cd:21,fx:"wall",da:3,dw:4,sa:"tackle and block reach +40%",sw:"Fortress: a 3 HP wall follows behind you",ab:"Stone Guard: for 3 s your slide-tackle and block reach is 40% longer (1.5 m → 2.1 m), and you get up 50% faster after a missed slide. Telegraph (0.5 s, rivals can see it): you stamp, the ground cracks and dust rises. Animation: stone guards grow on your forearms and shins, rock shards circle your waist, and a ring of stones on the ground marks how far you can reach.",aw:"Fortress, 4 s: a stone wall 3 m wide and 2.2 m tall rises 1.5 m behind you and follows you with a 0.3 s lag; you move 15% slower while it stands. Shots and passes that hit it bounce off, players walk around it, and lobs fly over it. It has 3 HP: a normal shot takes 1 and a full-power or stronger shot takes 2, and at 0 it crumbles. It can't follow you within 8 m of your own goal line; there it stops on the 8 m line. Blocks by the wall give no aura. Telegraph (1 s, rivals can see it): the ground shakes, cracks spread from your feet and the first stones push out of the ground. Animation: the wall grows out of the ground row by row, with battlements on top, a green banner in the middle, torches at the sides and three gems on the banner showing its HP. A ball that hits it bounces off in a cloud of dust, a crack appears and a gem goes dark.",mn:"Team matches, Hockey and Final: as written. Bomb: as written; the 8 m rule matters most here, so the bomb team can always shoot from close range. 1v1v1v1: the 8 m rule uses the shared goal, so nobody can wall it off, and the wall has 2 HP. Basketball: the wall can't come within 8 m of either hoop. Volleyball: the wall can't rise; Fortress instead gives you 2 m reach on strikes and slide-saves for 4 s. Hot Potato: Stone Guard lets you reach the potato from 2.1 m when you're the holder, so you can kick it on sooner; Fortress is a 2 m wall that stops one potato and then crumbles (the kicker stays the holder). Crates: no interaction.",cp:"Lob over it, curve around it, or break it with two strong shots. It trails behind the Bulwark, so drag them away from the play or shoot from the side. It can never close the goal mouth (the 8 m rule), and the Bulwark is 15% slower while it stands, so dribble past them.",bal:"The original wall moved with you and stopped every shot for 5 s: parked on the goal line it was a shutout that decided Finals and Match 5 on its own. 3 HP (with strong shots counting double), lobs over the top, the 8 m rule, a 15% slow and no aura from blocks make it a breakable, dodgeable obstacle with a value of about 1.6.",chg:"Kept the original fantasy of a wall behind you that moves with you. Ability: 'more reach' → +40%, plus faster recovery after a missed slide. Awakening 5 s → 4 s, with a defined size (3 × 2.2 m), 3 HP, lobs over the top, the 8 m goal rule, the 15% slow and no aura from blocks. Cooldown 22 → 21 s. Renamed Ściana → Bulwark, Awakening Fortress; Rampart and Bastion were avoided because they are famous shooter characters."},
+    {id:"illusionist",n:"Illusionist",was:"Iluzjonista",k:"epic",st:"tricks",c:"#E0457B",c2:"#FFD86B",cd:20,fx:"magic",da:4,dw:5,sa:"next pass or shot bends around one rival",sw:"Grand Finale: 2 hologram balls with a shadow tell",ab:"Sleight: your next pass or shot within 4 s bends once around the first rival in its path (up to 1.5 m sideways). It won't bend around a rival standing within 2 m of the target, or ever around a goalkeeper, and the bend costs 15% of the ball's speed. Telegraph (0.5 s, rivals can see it): a playing card appears in your hand and you twirl it in your fingers. Animation: the ball leaves gold dust and little stars behind it, and when a rival reaches for it, it neatly curves around them and a puff of cards bursts where they tried to catch it.",aw:"Grand Finale, 5 s: your next 2 passes or shots each release a hologram ball that flies at the same speed toward a point up to 25° away from the real one. Holograms cast no shadow, make no kick sound, flicker every 0.3 s and vanish after 1.2 s or when they touch anything. AI goalkeepers always follow the real ball but react 0.15 s later. Telegraph (1 s, rivals can see it): a magician's top hat rises out of the ground, a ball pops out of it and two spotlights snap on. Animation: you wear the top hat, a fan of cards circles you and two card icons over the hat show the holograms left; each kick splits in the air into the real ball and a flickering purple hologram that bursts into cards when it vanishes.",mn:"Team matches, Hockey and Bomb: as written. Hot Potato: Sleight bends the potato around a rival in the way (aim assist is off for that kick); a hologram can't hit anyone or make anyone the holder, so it's pure bluff. 1v1v1v1 and Final: Sleight works on shots, and the 0.15 s AI keeper delay is the real effect. Basketball: holograms only appear on ground kicks, not on hoop shots. Volleyball: the hologram gets its own flickering landing ring, while the real ring stays solid. Crates: no interaction.",cp:"Look at the ground: only the real ball has a shadow and a kick sound, and holograms flicker. There are only 2 per Awakening and the card icons count them down. Mark the receiver instead of the ball. Sleight can't get around a defender standing tight on the receiver, and it is 15% slower.",bal:"Two fakes (not unlimited) with readable tells, value about 1.6. The AI keeper gets a small fixed delay instead of either cheating or being fooled. Sleight now works on shots too, so it isn't dead in the three modes without passing.",chg:"Sleight: added a bend limit, receiver protection, a keeper exception and a 15% speed cost; it now also works on shots. Grand Finale: 6 s of fakes on every kick → 5 s with at most 2 fakes, a shadow tell and a defined AI keeper rule (0.15 s); hologram life 1.5 s → 1.2 s; volleyball rule added. Cooldown 23 → 20 s. Name kept."},
+    {id:"shade",n:"Shade",was:"Cień",k:"epic",st:"stealth",c:"#5A3DFF",c2:"#C9A8FF",cd:22,fx:"ninja",da:3,dw:4,sa:"4 m smoke cloud; the ball stays visible",sw:"Vanishing Cut: an aimed 7 m blink past a defender",ab:"Smoke Bomb: you drop a smoke cloud 4 m wide that lasts 3 s. Players inside it are hidden from rivals outside, who see only a shimmer; rivals within 3 m of you always see you. The ball is never hidden: it glows inside the smoke. Leaving the cloud makes you 10% faster for 1 s. Telegraph (0.5 s, rivals can see it): you reach to your belt for a smoke-bomb pellet. Animation: you throw it at your feet and purple smoke bursts out with falling petals; inside the smoke you leave only fading footprints and a ripple in the air, and you step out of it in a puff.",aw:"Vanishing Cut, 4 s: within the 4 s, press G again to blink up to 7 m in your movement direction, keeping the ball. You can blink past a rival (you always land at least 1 m clear of anyone), but not through walls or goalposts, and not into the goal area. A smoke decoy of you stands at your old spot for 1.5 s, and you can't shoot for 0.5 s after the blink. If you don't blink, 50 aura is refunded. Telegraph (1 s, rivals can see it): a purple ninja seal with spinning runes lights up under your feet, and a faint 7 m ring shows your range. Animation: you melt into smoke, leaving a dark afterimage, a purple streak flashes across the ground, and you reappear past the defender with a crescent-shaped slash while a question mark pops over their head.",mn:"Team matches, Hockey and Bomb: as written. Hot Potato: the cloud is 3 m wide; aim assist ignores players inside the smoke, but a manual hit still counts, and the potato glows through it. Vanishing Cut is an escape without the potato, or a point-blank delivery with it (the target saw the seal for 1 s). 1v1v1v1: you can't blink into the goal area, and the AI keeper is unaffected. Final: a fixed 7 m with a 0.5 s no-shot lag, so a defender who drops deep still recovers. Basketball and volleyball: the blink is ground-only and stays on your side of the net. Crates: no interaction.",cp:"Follow the glowing ball, not the player, and stay within 3 m to keep sight. Against Vanishing Cut, the range ring shows where they can land: drop deeper than 7 m, or use the 0.5 s no-shot lag to recover. The decoy has no ball.",bal:"Information denial instead of true invisibility, value about 1.6. The Awakening is a capped reposition that beats one defender, not a guaranteed open goal: a fixed range, no stun on the defender, a shot lag and no landing in the goal area. The refund stops it from feeling wasted.",chg:"Ability: 2 s of full invisibility (whether the ball vanished too was unclear) → a 3 s smoke cloud with the ball always visible and a 3 m reveal; this also fixes the viewer mismatch (2.6 s vs 2 s). Awakening: 'teleport behind the nearest defender' (no range; it could mean behind the AI keeper) → a player-aimed 7 m blink that can pass a defender, with a decoy, a 0.5 s no-shot lag and no landing in the goal area. Cooldown 25 → 22 s. Renamed Cień → Shade; the Awakening name avoids 'Shadowstep', a famous MMO skill."},
+    {id:"tempest",n:"Tempest",was:"Grom",k:"legendary",st:"storm tackling",c:"#FFE14D",c2:"#7FE8FF",cd:24,fx:"storm",da:3,dw:5,sa:"next slide goes 60% farther",sw:"Thunderhead: 3 telegraphed strikes on the ball carrier",ab:"Lightning Slide: your next slide tackle within 3 s travels 60% farther and 30% faster in a straight line. If it misses, you stay on the ground 0.4 s longer than after a normal missed slide, and a well-timed dribble still beats it. Telegraph (0.5 s, rivals can see it): your hair stands on end and small sparks jump across your body. Animation: the slide turns into a yellow-and-cyan flash, a lightning zigzag is burned into the grass behind you, and a crackling discharge pops where you hit the ball.",aw:"Thunderhead, 5 s: a storm cloud follows you. Every 1.5 s (3 strikes at most) it marks the nearest rival with the ball within 10 m: a 1.2 m yellow ring appears under them for 0.75 s, then lightning hits the ring. If they are still in it with the ball, the ball is knocked 3 m away and they are staggered for 0.3 s. Passing, shooting, a stepover or rainbow at the moment of the strike, or leaving the ring, dodges it. It never targets goalkeepers, and strikes give no aura. Telegraph (1 s, rivals can see it): the sky darkens and a cloud gathers over you, flashing from inside. Animation: you float slightly above the ground in a yellow-and-cyan aura, arcs of current jump between your hands, three glowing pips on the cloud count the strikes left, and each bolt leaves a scorched circle and sparks while the ball bounces away.",mn:"Team matches and Bomb: as written. Hot Potato: Lightning Slide is a long dash (escape or reach). Strikes target the potato holder and only stagger them for 0.3 s, without knocking the potato loose, and kicking it away during the 0.75 s ring dodges the strike. 1v1v1v1: targets the nearest rival ball carrier, never the AI keeper. Final: as written; dodging by dribbling matches the dribble-vs-slide rule. Basketball: a strike can't hit a player in the air (the ring waits until they land). Volleyball: strikes mark the rival about to touch the ball and knock it short. Hockey: the knocked ball travels 4 m on ice. Crates: the stagger follows the crowd-control rules.",cp:"The 0.75 s ring is the tell: pass, shoot, dribble or step out. Stay more than 10 m away, or let a teammate hold the ball. The pips show the strikes left. A missed Lightning Slide leaves Tempest on the ground longer.",bal:"Area pressure that rewards reaction, not an automatic steal: a skilled carrier dodges about 2 of 3 strikes. Value about 1.9 on 24 s. The 0.3 s stagger plus the 2 s immunity rule rules out chain stuns.",chg:"Awakening: automatic bolts with no warning (12 m, 0.5 s stun × 3) → a dodgeable 0.75 s ring, 10 m range, a 0.3 s stagger, never keepers and no aura from strikes. Ability: 2× distance → +60% distance and +30% speed, with a miss penalty. Cooldown 29 → 24 s. Renamed Grom → Tempest, Awakening Thunderhead. Now electric yellow with cyan, so it no longer shares Snapshot's gold."},
+    {id:"mimic",n:"Mimic",was:"Kameleon",k:"legendary",st:"copying",c:"#E6E8F5",c2:"#6A3DB8",cd:26,fx:"cham",da:8,dw:4,sa:"copy the nearest rival's ability at 80%",sw:"Stolen Shadow: fire the faced rival's Awakening at 75%",ab:"Shadow Grab: a shadow tendril copies the ability of the nearest rival within 10 m. You hold it for up to 8 s and fire it with 1. It works at 80% of its numbers (durations, bonuses and radii), and firing it starts no extra cooldown. Copying another Mimic fails and refunds half the cooldown. Telegraph (0.5 s, rivals can see it): your body darkens and a pool of shadow spreads under your feet. Animation: a black tendril crawls from your shadow into the rival's shadow and pulls out a glowing orb of their ability. The orb floats to you wrapped in shadow and circles over your head until you use it, while dark smoke rises from the pool.",aw:"Stolen Shadow: copies the Awakening of the rival you're facing within 15 m (or of the nearest rival, if none is in front of you) and fires it at once at 75% of its duration, even if they haven't charged it yet. The rival keeps their own aura. The copy follows the copied style's rules for the current mode and all global caps. If the target is another Mimic, you get two full-strength Shadow Grab charges instead. Telegraph (1 s, rivals can see it): you melt into shadow, the target is outlined in violet and the icon of the Awakening you're about to copy appears over your head. Animation: the rival's shadow tears off their feet, glides over the ground and stands up behind you as a black double with a rim in the rival's colour. The copied Awakening plays in ink colours with violet edges so everyone can tell it's a copy, then the shadow slides back to its owner.",mn:"Every copy follows the copied style's rules for the current mode. Team matches: choose whom to stand near. Hot Potato: copies use their Hot Potato versions, and the last-10-s lock applies. 1v1v1v1: there are 3 possible targets; the AI keeper has no style and is never a target. Final: you always copy the other finalist, which makes it a mirror duel. Volleyball: copying works across the net. Basketball, Hockey, Bomb and Crates: no extra changes.",cp:"Keep out of 10 m during the tendril telegraph to avoid the grab, and turn away or step out of 15 m when the violet outline appears; the icon gives 1 s of warning. Copies run at 75–80% strength, keep the original's telegraph and counterplay, and have violet edges.",bal:"Its power is the lobby's average style at 75–80%, slightly below par, paid back by flexibility; it has the longest Legendary cooldown (26 s), value about 1.9. Every Awakening now shares one budget, so copying one before its owner has charged it is a sidegrade, not a theft of the best tool in the lobby.",chg:"Ability: added a 10 m range, an 8 s hold, 80% strength and a Mimic-vs-Mimic rule. Awakening: a full-strength copy of anyone → 75% duration, aimed by facing, with the target warned by a violet outline and an icon; Mimic vs Mimic defined. Cooldown 30 → 26 s. Renamed Kameleon → Mimic, because a copy ability called Chameleon is tied to a famous soccer anime. New pale colour so it no longer clashes with Shade's purple."},
+    {id:"analyst",n:"Analyst",was:"Analityk",k:"legendary",st:"tactics",c:"#B6FF3A",c2:"#E0E4F5",cd:25,fx:"analyst",da:5,dw:6,sa:"read rivals' shot lines and cooldowns",sw:"Game Plan: your team sees every rival shot line and pass direction",ab:"Readout: for 5 s you see, for every rival within 15 m, a small cooldown ring over their head showing when their ability is ready, and, if they are charging a shot or lob, their shot line (the dashed aiming line that normally only the shooter sees). Rivals you are reading see an eye icon over their own head. Telegraph (0.5 s, rivals can see it): you tap your temple and a thin lime scan line sweeps out over the ground. Animation: a holographic tablet appears in your hand, rivals in range get thin lime outlines with cooldown rings over their heads, and every shot line you read glows lime and ends in a target ring.",aw:"Game Plan, 6 s: you and teammates within 15 m see every rival's shot line, plus a short arrow showing which way each rival ball carrier is facing to pass. Rivals inside the 15 m area see the eye icon. In modes without teammates only you see it. Nothing is blocked or disabled: it is information only. Telegraph (1 s, rivals can see it): a holographic tactics board unfolds in front of you. Animation: a lime grid sweeps over the pitch from your feet, rivals get thin outlines, their shot lines and pass arrows glow, and small tactical markers float over your teammates.",mn:"Team matches: strongest with teammates who act on the information. Hot Potato: Readout shows the potato holder's kick line, so you can sidestep; Game Plan shows it to you only. 1v1v1v1: shows every rival's line (solo version); great for blocking. Final: solo version; the rival sees the eye and can fake or cancel with C. Basketball, Volleyball, Hockey, Bomb and Crates: as written.",cp:"The eye icon tells you you're being read: cancel the shot with C and re-aim, fake a shot, or pass instead. The Analyst still has to get into the lane in time, and nothing is disabled.",bal:"Pure information, and the rival always knows they're being read, so its value depends on skill: about 1.9 on 25 s for a player who reads well, much less for one who doesn't. It is the high-ceiling, low-floor Legendary. The draft's silence was removed because a 6 s ability lock is a hard counter that feels unwinnable.",chg:"Hidden draft Analityk finished. Ability: 'see who has abilities ready' → rival shot lines plus cooldown rings within 15 m, with an eye-icon warning; seeing who has 100 aura is now a global ready glow for everyone. Awakening: the 6 s silence → a 6 s team read of shot lines and pass directions. Cooldown 30 → 25 s. New lime colour so it no longer looks like the grey Common frame. Needs a new fx."},
+    {id:"hourglass",n:"Hourglass",was:"Metawizja",k:"mythic",st:"time",c:"#3D5BFF",c2:"#A8D2FF",cd:29,fx:"time",da:5,dw:4,sa:"the airborne ball near you slows to 70%",sw:"Still Hour: a fixed 7 m time dome at 70%",ab:"Slow Drop: for 5 s, when the ball is in the air within 3 m of you, it moves at 70% speed. It's the real ball, so everyone sees and plays the same slowed ball. Your volleys off it are 15% stronger. Telegraph (0.5 s, rivals can see it): a small blue clock appears under your feet with its hand spinning wildly. Animation: your kicking leg glows blue, blue sparks circle your boot, a faint 3 m blue ring shows the slow area, and every volley leaves a blue streak behind the ball.",aw:"Still Hour, 4 s: a blue dome with a 7 m radius forms where you stand and stays there. Inside it, everyone except you moves at 70% speed, and so does the ball, except when you kick it (your kicks leave at full speed). Goalkeepers and anyone outside the dome aren't affected, and a player who leaves the dome is back to normal at once. Telegraph (1 s, rivals can see it): the clock hands under your feet spin faster and faster and loud ticking builds. Animation: a blue dome blooms from where you stand and a giant clock face appears on the grass inside it with crawling hands. Everything inside fades to blue-grey, dust and sparks hang in the air and slowed players drag afterimages, while the sky over the whole pitch dims for a moment (visual only).",mn:"Team matches and Bomb: as written; teammates inside are slowed too, so place it with care. Hot Potato: the dome is 4 m and the round clock never slows; Slow Drop slows a potato in flight near you, giving you time to dodge or set up a kick. 1v1v1v1: the dome can't form within 8 m of the goal (it forms on the 8 m line instead), and the AI keeper is never slowed. Final: as written; the rival can walk out of a static dome. Basketball and volleyball: the ball slows inside the dome for everyone, and the volleyball landing ring stays accurate. Hockey: slowed players keep sliding. Crates: no interaction.",cp:"The dome doesn't move: leave it during the 1 s telegraph or walk out of it, and it lasts only 4 s. Pass the ball out of the dome. Keepers are immune, and Hourglass itself is no faster than normal. Rivals can volley the slowed Slow Drop ball too.",bal:"Mythic buys spectacle, not power: its numbers sit on the Legendary budget (value about 2.2 per use on 29 s, the same per minute as every tier). A local, static zone at 70% replaces a pitch-wide time stop at 40%, so rivals can always act and escape.",chg:"Legendary → Mythic: the single chase style. Awakening: everyone on the pitch slowed to 40% for 5 s → a static 7 m dome at 70% for 4 s, with keepers immune and an 8 m goal rule in Match 5. Ability: 1.5× volley power (which overlapped with Acrobat) → a local ball slow plus +15% volleys; 4 s → 5 s. Cooldown 28 → 29 s. Renamed Metawizja → Hourglass, because 'Metavision' is a signature term of a famous soccer anime; the Awakening name Still Hour avoids 'Time Stop', a famous anime power."}
+  ];
+  /* drop chance of each style = its rarity's chance / number of styles in that rarity */
+  CH.forEach(c=>{const n=CH.filter(x=>x.k===c.k).length;c.pp=CLS[c.k].p/n;});
+  window.TP48=Object.assign(window.TP48||{},{CLS,RK,CH});
+  /* fx keys that have a hand-built 3D effect. A style whose fx is not listed here uses the generic aura until its effect is built. */
+  const FXK={speed:1,dance:1,time:1,king:1,cham:1,acro:1,wall:1,ninja:1,impact:1,wolf:1,ice:1,magic:1,phoenix:1,storm:1};
+  const hasFx=c=>!!(c&&FXK[c.fx]);
   const modal=document.getElementById('chars'),cv=document.getElementById('charCanvas');
   let R=null,spd=null,dnc=null,tmg=null,kng=null,chm=null,acr=null,wal=null,nja=null,imp=null,wlf=null,icg=null,mag=null,phx=null,stm=null,scene,cam,fig,parts=[],shell,shell2,ring,disc,orbits=[],light,cur=0,mode='idle',mt=0,abI=0,awkT=0,telI=0,gameView=false,lastLbl='',eyes=[],conv=[],glyph=null,yaw=0.4,drag=null,raf=0,last=0;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -3190,13 +3461,16 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     cv.addEventListener('pointermove',e=>{if(drag)yaw=drag.y+(e.clientX-drag.x)*0.012;});
     cv.addEventListener('pointerup',()=>drag=null);cv.addEventListener('pointercancel',()=>drag=null);
   }
-  const col=new THREE.Color(),col2=new THREE.Color(),wh=new THREE.Color('#FFFFFF'),tmpc=new THREE.Color();
-  function show(i){cur=(i+CH.length)%CH.length;const c=CH[cur];mode='idle';mt=0;abI=0;awkT=0;telI=0;lastLbl='';
-    document.getElementById('charName').textContent=c.n;document.getElementById('charStyle').textContent=c.st;
-    const st=document.getElementById('charStatus');st.textContent=c.s==='Nowa'?'New idea':c.s==='Ustalona'?'Settled':c.s;st.className='badge'+(c.s==='Szkic'?' tbd':c.s==='Pominięta'?' skip':c.s==='Nowa'?' new':' ok');
-    const cl=document.getElementById('charClass');cl.textContent=CLS[c.k].n;cl.style.background=CLS[c.k].c;
-    document.getElementById('charCd').textContent='cooldown '+c.cd+' s';document.getElementById('charAb').textContent=c.ab;document.getElementById('charAw').textContent=c.aw;
-    document.getElementById('charCount').textContent=(cur+1)+' / '+CH.length;
+  const T3=window.THREE,col=T3?new T3.Color():null,col2=T3?new T3.Color():null,wh=T3?new T3.Color('#FFFFFF'):null,tmpc=T3?new T3.Color():null;
+  const pct=p=>(Math.round(p*100)/100)+'%',$=id=>document.getElementById(id),txt=(id,v)=>{const e=$(id);if(e)e.textContent=v;};
+  function show(i){cur=(i+CH.length)%CH.length;const c=CH[cur],cl=CLS[c.k];mode='idle';mt=0;abI=0;awkT=0;telI=0;lastLbl='';
+    txt('charName',c.n);txt('charStyle',c.st);txt('charWas',c.was==='new'?'new style':'formerly '+c.was);
+    const st=$('charStatus');st.textContent=pct(c.pp)+' per roll';st.title=cl.n+' '+cl.p+'% ÷ '+CH.filter(x=>x.k===c.k).length+' styles';
+    const cb=$('charClass');cb.textContent=cl.n;cb.style.background=cl.c;
+    txt('charCd','cooldown '+c.cd+' s · lasts '+c.da+' s');txt('charAwCd','100 aura · '+c.dw+' s');txt('charAb',c.ab);txt('charAw',c.aw);
+    txt('charMn',c.mn);txt('charCp',c.cp);txt('charBal',c.bal);txt('charChg',c.chg);
+    txt('charCount',(cur+1)+' / '+CH.length);
+    document.querySelectorAll('#charLegend [data-r]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.r===c.k?'true':'false'));
     if(!R)return;col.set(c.c);col2.set(c.c2);fig.userData.bm.color.copy(col).lerp(wh,0.45);
     disc.material.color.copy(col);ring.material.color.copy(col2);shell.material.color.copy(col);shell2.material.color.copy(col2);light.color.copy(col);
     parts.forEach((m,k)=>m.material.color.copy(k%3?col:col2));orbits.forEach((o,k)=>o.material.color.copy(k===1?col2:col));
@@ -3214,7 +3488,7 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     glyph.material.opacity=(mode==='aw'&&!act)?0.9*Math.min(1,telI*3):0;glyph.scale.setScalar(3.2-telI*2.4);glyph.rotation.z=telI*4;
     if(!drag&&!reduce)yaw+=dt*0.35;
     const tf=Math.tan(cam.fov*Math.PI/360),r=Math.max(2.9/tf,2.1/(tf*Math.max(0.3,cam.aspect)))+0.6;cam.position.set(Math.sin(yaw)*r,2.6,Math.cos(yaw)*r);cam.lookAt(0,1.6+A*0.2,0);
-    const isSpd0=!!cc0.fx,gen=gameView?(isSpd0?0:Math.max(abI,A)):1;
+    const isSpd0=hasFx(cc0),gen=gameView?(isSpd0?0:Math.max(abI,A)):1;
     fig.position.y=(isSpd0?0:A*0.35)+Math.sin(t*2)*0.04*sp;fig.userData.arms.forEach((a,k)=>a.rotation.z=(k?1:-1)*(0.15+A*0.9+Math.sin(t*3+k)*0.05*sp));
     fig.userData.ball.position.set(0.55,0.28+Math.abs(Math.sin(t*4))*0.25*sp*(1-A),0.55);fig.userData.ball.visible=A<0.7;
     shell.scale.set(1+A*0.5+Math.sin(t*7)*0.04*sp,1+A*0.45,1+A*0.5+Math.cos(t*6)*0.04*sp);shell.material.opacity=(0.12+A*0.1+Math.sin(t*9)*0.03*sp)*gen;shell.rotation.y=t*0.8*sp;
@@ -3226,7 +3500,7 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     orbits.forEach((o,k)=>{o.material.opacity=A*0.85;o.position.y=1.4+Math.sin(t*2+k*2)*0.5;o.rotation.set(Math.PI/2+Math.sin(t*0.9+k)*0.6,t*(0.7+k*0.3)*sp,Math.cos(t*0.8+k)*0.4);});
     const cc=CH[cur],isSpd=cc.fx==='speed';spd.visible=isSpd;
     /* characters with their own effect: the Awakening replaces the generic aura */
-    const isDance=cc.fx==='dance',isTime=cc.fx==='time',isKing=cc.fx==='king',isCham=cc.fx==='cham',isAcro=cc.fx==='acro',isWall=cc.fx==='wall',isNinja=cc.fx==='ninja',isImp=cc.fx==='impact';acr.visible=isAcro;wal.visible=isWall;nja.visible=isNinja;imp.visible=isImp;dnc.visible=isDance;tmg.visible=isTime;kng.visible=isKing;chm.visible=isCham;orbits.forEach(o=>{if(cc.fx)o.material.opacity=0;});if(cc.fx){shell2.material.opacity=0.04*gen;}
+    const isDance=cc.fx==='dance',isTime=cc.fx==='time',isKing=cc.fx==='king',isCham=cc.fx==='cham',isAcro=cc.fx==='acro',isWall=cc.fx==='wall',isNinja=cc.fx==='ninja',isImp=cc.fx==='impact';acr.visible=isAcro;wal.visible=isWall;nja.visible=isNinja;imp.visible=isImp;dnc.visible=isDance;tmg.visible=isTime;kng.visible=isKing;chm.visible=isCham;orbits.forEach(o=>{if(hasFx(cc))o.material.opacity=0;});if(hasFx(cc)){shell2.material.opacity=0.04*gen;}
     const isWolf=cc.fx==='wolf',isIce=cc.fx==='ice',isMag=cc.fx==='magic',isPhx=cc.fx==='phoenix',isStorm=cc.fx==='storm';wlf.visible=isWolf;icg.visible=isIce;mag.visible=isMag;phx.visible=isPhx;stm.visible=isStorm;
     if(isSpd){const sv=reduce?0:1,U=spd.userData,wt=U.waveT;U.waveT+=dt;
       /* ABILITY (basic): low rings from the ground and short streaks at the feet */
@@ -3756,16 +4030,242 @@ const jag=(a,b,n,amp)=>{const pts=[];for(let k=0;k<=n;k++){const p=a.clone().ler
     if(!isCham&&!isNinja){fig.userData.bm.opacity=1;fig.userData.bm.transparent=false;}
     if(!isKing){kng.userData.crownM.opacity=0;kng.userData.gem.material.opacity=0;kng.userData.hal.material.opacity=0;}
     R.render(scene,cam);}
-  function open(){if(!R)build();if(!R)return;show(cur);requestAnimationFrame(()=>{size();if(!raf){last=0;raf=requestAnimationFrame(frame);}});}
+  function open(){if(!R)build();if(!R){show(cur);return;}show(cur);requestAnimationFrame(()=>{size();if(!raf){last=0;raf=requestAnimationFrame(frame);}});}
   function close(){cancelAnimationFrame(raf);raf=0;}
   new MutationObserver(()=>{if(modal.hidden)close();else open();}).observe(modal,{attributes:true,attributeFilter:['hidden']});
   new ResizeObserver(()=>{if(R&&!modal.hidden)size();}).observe(cv);
   document.getElementById('charPrev').onclick=()=>show(cur-1);document.getElementById('charNext').onclick=()=>show(cur+1);
   function trig(m){if(mode!=='idle')return;mode=m;mt=0;}
   document.getElementById('charAbBtn').onclick=()=>trig('ab');document.getElementById('charAwBtn').onclick=()=>trig('aw');
+  /* open the viewer on one style (used by the roll panel); aw = also play its Awakening */
+  window.TP48.view=(id,aw)=>{const i=CH.findIndex(c=>c.id===id);if(i<0)return;cur=i;
+    if(modal.hidden){document.querySelectorAll('.rules').forEach(x=>x.hidden=true);modal.hidden=false;document.getElementById('charsClose').focus();}else show(i);
+    if(aw)setTimeout(()=>trig('aw'),120);};
+  document.querySelectorAll('#charLegend [data-r]').forEach(b=>b.onclick=()=>{const i=CH.findIndex(c=>c.k===b.dataset.r);if(i>=0)show(i);});
   document.getElementById('charViewBtn').onclick=e=>{gameView=!gameView;e.target.textContent=gameView?'🎮 View: in-game':'🎮 View: showcase';};
   document.addEventListener('keydown',e=>{if(modal.hidden)return;if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
   show(0);
+})();
+</script>
+<script>
+/* ===== Roll: one random style per roll, with published odds, guarantees and duplicates (working demo) ===== */
+(function(){
+  const $=id=>document.getElementById(id),dlg=$('roll');if(!dlg)return;
+  const D=window.TP48;
+  if(!D||!D.CH){$('rollMsg').textContent='The style data failed to load.';return;}
+  const {CLS,RK,CH}=D,BYID={},POOL={};CH.forEach(c=>BYID[c.id]=c);RK.forEach(k=>POOL[k]=CH.filter(c=>c.k===k));
+  const COST=100,START=300,KEY='tp48-roll-v1';
+  const REFUND={common:25,rare:40,epic:60,legendary:100,mythic:200};
+  const BASE=RK.map(k=>CLS[k].p);            /* 52 / 28 / 14 / 5 / 1 */
+  const EFF=[50.3,27.1,15.6,5.7,1.3];        /* real share once the guarantees are counted (2-million-roll simulation) */
+  const PITY={e:10,l:50,m:200};              /* Epic+ within 10, Legendary+ within 50, Mythic within 200 */
+  const GL={tut:'free first roll: Rare or better',e:'Epic+ guarantee',l:'Legendary+ guarantee',m:'Mythic guarantee'};
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const esc=t=>String(t).replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+  const f1=x=>(Math.round(x*10)/10)+'%',f2=x=>(Math.round(x*100)/100)+'%',num=n=>n.toLocaleString('en-US');
+
+  /* randomness: crypto.getRandomValues (Math.random only if the browser has no crypto) */
+  const CR=window.crypto,buf=new Uint32Array(1024);let bi=buf.length;
+  function rnd(){if(!CR||!CR.getRandomValues)return Math.random();if(bi>=buf.length){CR.getRandomValues(buf);bi=0;}return buf[bi++]/4294967296;}
+  function pick(w){const tot=w.reduce((a,b)=>a+b,0);let x=rnd()*tot,last=0;for(let i=0;i<w.length;i++){if(w[i]<=0)continue;last=i;x-=w[i];if(x<0)return i;}return last;}
+
+  /* odds of the next roll: base table, or the guarantee that applies */
+  function dist(st){
+    if(st.tut&&st.free>0)return{w:[0,28/48*100,14/48*100,5/48*100,1/48*100],g:'tut'};
+    if(st.p.m>=PITY.m-1)return{w:[0,0,0,0,100],g:'m'};
+    if(st.p.l>=PITY.l-1)return{w:[0,0,0,500/6,100/6],g:'l'};
+    if(st.p.e>=PITY.e-1)return{w:[0,0,70,25,5],g:'e'};
+    return{w:BASE.slice(),g:null};}
+  /* hitting a rarity resets its counter and every counter below it */
+  function bump(p,ri){p.e=ri>=2?0:p.e+1;p.l=ri>=3?0:p.l+1;p.m=ri>=4?0:p.m+1;}
+  function draw(st,held){const d=dist(st),ri=pick(d.w);let pool=POOL[RK[ri]];
+    if(d.g){const f=pool.filter(c=>!held.includes(c.id));if(f.length)pool=f;}   /* a guaranteed result never gives a style you hold */
+    return{c:pool[Math.floor(rnd()*pool.length)],ri,g:d.g};}
+
+  /* state, saved in this browser only (works without storage too) */
+  const fresh=()=>({v:1,coins:START,free:1,tut:true,slots:[null,null,null],locks:[false,false,false],sel:0,p:{e:0,l:0,m:0},hist:[],book:{},rolls:0,quick:false,pend:null});
+  function load(){const f=fresh();let o=null;try{o=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){o=null;}
+    if(!o||typeof o!=='object'||o.v!==1)return f;
+    const n=(x,d,max)=>Number.isFinite(x)&&x>=0?Math.min(Math.floor(x),max):d;
+    f.coins=n(o.coins,START,1e9);f.free=n(o.free,0,99);f.tut=!!o.tut;f.rolls=n(o.rolls,0,1e9);f.quick=!!o.quick;
+    if(Array.isArray(o.slots))f.slots=[0,1,2].map(i=>BYID[o.slots[i]]?o.slots[i]:null);
+    if(Array.isArray(o.locks))f.locks=[0,1,2].map(i=>!!o.locks[i]);
+    f.sel=[0,1,2].includes(o.sel)?o.sel:0;
+    if(o.p&&typeof o.p==='object')f.p={e:n(o.p.e,0,PITY.e-1),l:n(o.p.l,0,PITY.l-1),m:n(o.p.m,0,PITY.m-1)};
+    if(Array.isArray(o.hist))f.hist=o.hist.filter(h=>h&&BYID[h.id]).slice(0,10);
+    if(o.book&&typeof o.book==='object')Object.keys(o.book).forEach(k=>{if(BYID[k])f.book[k]=n(o.book[k],0,1e6);});
+    if(o.pend&&BYID[o.pend.id]&&[0,1,2].includes(o.pend.slot))f.pend={id:o.pend.id,slot:o.pend.slot};
+    return f;}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+  let S=load(),anim=null,lastRes='',resetArm=0,backToRoll=false;
+  const stars=id=>Math.min(5,Math.max(0,(S.book[id]||0)-1));
+  const starTxt=id=>{const n=stars(id);return n?'★'.repeat(n):'';};
+  const rc=c=>CLS[c.k].c;
+
+  /* ---------- rendering ---------- */
+  function msg(t){$('rollMsg').textContent=t||'';}
+  function renderWallet(coins){$('rollCoins').textContent=num(coins==null?S.coins:coins);
+    $('rollFree').textContent=S.free>0?(S.free+' free roll'+(S.free>1?'s':'')+(S.tut?' · Rare or better':'')):'';}
+  function renderSlots(){$('rollSlots').innerHTML=S.slots.map((id,i)=>{const c=BYID[id];
+    return `<div class="xslot${S.sel===i?' on':''}" style="--rc:${c?rc(c):'#8FA3B8'}"><button class="xsel" data-slot="${i}" aria-pressed="${S.sel===i}" aria-label="Slot ${i+1}: ${c?esc(c.n)+', '+CLS[c.k].n:'empty'}${S.locks[i]?', locked':''}"><span class="xk">Slot ${i+1}${S.sel===i?' · selected':''}</span><span class="xsn">${c?esc(c.n):'empty'}</span></button><button class="xlock" data-lock="${i}" aria-pressed="${S.locks[i]}" aria-label="${S.locks[i]?'Unlock':'Lock'} slot ${i+1}" title="${S.locks[i]?'Locked: this slot can\'t be rolled':'Lock this slot so it can\'t be rolled'}">${S.locks[i]?'🔒':'🔓'}</button></div>`;}).join('');}
+  function renderCur(){const id=S.slots[S.sel],c=BYID[id],el=$('rollCur');
+    if(!c){el.style.setProperty('--rc','#8FA3B8');el.innerHTML=`<h4>Slot ${S.sel+1} is empty</h4><p class="xmuted">Roll to put a style here. ${S.tut&&S.free>0?'Your first roll is free and guaranteed Rare or better.':'An empty slot keeps the new style automatically.'}</p>`;return;}
+    el.style.setProperty('--rc',rc(c));
+    el.innerHTML=`<h4><span style="color:${rc(c)}">${esc(c.n)}</span><span class="badge cls" style="background:${rc(c)}">${CLS[c.k].n}</span><span class="badge where">${esc(c.st)}</span><span class="xstars" aria-label="${stars(id)} Mastery Stars">${starTxt(id)}</span></h4>
+      <p><b>Ability</b> <span class="kbd">1</span> ${esc(c.sa)} <span class="xmuted">· cooldown ${c.cd} s</span></p>
+      <p><b>Awakening</b> <span class="kbd">G</span> ${esc(c.sw)} <span class="xmuted">· 100 aura</span></p>
+      <p class="xmuted">Slot ${S.sel+1}${S.locks[S.sel]?' (locked)':''} is the style you take into your next tournament. <button class="linkbtn" data-view="${c.id}">▶ See it in 3D</button></p>`;}
+  function canRoll(){if(S.locks[S.sel])return 'Slot '+(S.sel+1)+' is locked. Unlock it or pick another slot.';
+    if(S.free<=0&&S.coins<COST)return 'Not enough coins: play a tournament or add demo coins.';return '';}
+  function renderSpin(){const b=$('rollSpin');
+    if(anim){b.textContent='⏭ Skip';b.disabled=performance.now()-anim.t0<anim.skipAt;return;}
+    const why=canRoll(),cost=S.free>0?'free':COST+' 🪙';
+    b.textContent=S.pend?`🎲 Keep current & roll again · ${cost}`:S.free>0?'🎲 Free roll':`🎲 Roll · ${COST} 🪙`;
+    b.disabled=!!why;if(why)msg(why);}
+  function renderRes(){const el=$('rollRes');
+    if(S.pend){const n=BYID[S.pend.id],o=BYID[S.slots[S.pend.slot]];
+      if(!o){S.slots[S.pend.slot]=n.id;S.pend=null;save();el.innerHTML='';return;}
+      el.innerHTML=`<div class="xdec" style="--rc:${rc(n)}"><p>New: <b style="color:${rc(n)}">${esc(n.n)}</b> (${CLS[n.k].n}, ${esc(n.st)}). Put it in slot ${S.pend.slot+1} instead of <b style="color:${rc(o)}">${esc(o.n)}</b> (${CLS[o.k].n})?</p>
+        <p class="xsmall"><b>${esc(n.n)}:</b> ${esc(n.sa)} · ${esc(n.sw)}<br><b>${esc(o.n)}:</b> ${esc(o.sa)} · ${esc(o.sw)}</p>
+        <div class="xbtns"><button id="rollKeep" class="go">✅ Keep new</button><button id="rollDiscard">↩ Keep current</button><button class="linkbtn" data-view="${n.id}" data-aw="1">▶ Watch its Awakening</button></div></div>`;return;}
+    el.innerHTML=lastRes?`<div class="xdec" style="--rc:var(--line)"><p>${lastRes}</p></div>`:'';}
+  function renderPity(){const d=dist(S);let h='';
+    if(S.tut&&S.free>0)h+=`<div class="xtut">🎁 Your free first roll is guaranteed Rare or better: Rare 58.3%, Epic 29.2%, Legendary 10.4%, Mythic 2.1%.</div>`;
+    [['e','Epic or better','#B26BFF'],['l','Legendary or better','#FFB21A'],['m','Mythic','#FF3B6B']].forEach(([k,lab,col])=>{const N=PITY[k],left=N-S.p[k];
+      h+=`<div class="xp${left===1?' hot':''}" style="--rc:${col}"><b>${lab}</b><span>${left===1?'guaranteed on your next roll!':'guaranteed within '+left+' rolls'}</span><div class="xpbar" role="progressbar" aria-label="${lab} guarantee" aria-valuemin="0" aria-valuemax="${N}" aria-valuenow="${S.p[k]}"><i style="width:${Math.round(S.p[k]/(N-1)*100)}%"></i></div></div>`;});
+    $('rollPity').innerHTML=h;
+    return d;}
+  function renderOdds(){const d=dist(S),hd=['Rarity','Chance','Each style','With guarantees','Your next roll','Cooldown','Styles'];
+    let h='<thead><tr>'+hd.map(x=>`<th>${x}</th>`).join('')+'</tr></thead><tbody>';
+    RK.forEach((k,i)=>{const cl=CLS[k],L=POOL[k];
+      const cells=[`<span class="xrn">${cl.n}</span>`,`<b>${cl.p}%</b>`,f2(cl.p/L.length)+' each',f1(EFF[i]),`<span class="xnext${d.g?' chg':''}">${f1(d.w[i])}</span>`,cl.cd,
+        `<div class="xch">${L.map(c=>`<button class="xchip${S.book[c.id]?' got':''}" style="--rc:${cl.c}" data-view="${c.id}" title="${esc(c.st)}: ${esc(c.sa)}. Awakening: ${esc(c.sw)}">${esc(c.n)}${stars(c.id)?' '+'★'.repeat(stars(c.id)):''}</button>`).join('')}</div>`];
+      h+=`<tr style="--rc:${cl.c}">`+cells.map((x,j)=>`<td data-label="${hd[j]}">${x}</td>`).join('')+'</tr>';});
+    $('rollOdds').innerHTML=h+'</tbody>';
+    const got=CH.filter(c=>S.book[c.id]).length,st=CH.reduce((a,c)=>a+stars(c.id),0);
+    $('rollBook').textContent=`Style Book: ${got} of ${CH.length} styles rolled${st?' · '+st+' Mastery Star'+(st>1?'s':''):''} · ${num(S.rolls)} roll${S.rolls===1?'':'s'} so far. A ✓ marks a style you have rolled.`;}
+  function outTxt(h){return h.o==='auto'?'into empty slot '+(h.slot+1):h.o==='new'?'kept new in slot '+(h.slot+1):h.o==='cur'?'kept current (recorded in the Style Book)':h.o==='dup'?'duplicate: +'+h.rf+' 🪙 and a Mastery Star':'choice open';}
+  function renderHist(){$('rollHist').innerHTML=S.hist.length?S.hist.map(h=>{const c=BYID[h.id];
+      return `<li style="--rc:${rc(c)}"><span class="xdot"></span><b>${esc(c.n)}</b> · ${CLS[c.k].n} <span class="xo">· roll ${h.n} · ${outTxt(h)}${h.g?' · '+GL[h.g]:''}</span></li>`;}).join(''):'<li class="xo" style="list-style:none;margin-left:-22px">No rolls yet.</li>';}
+  function renderStage(){if(anim)return;const st=$('rollStage'),card=$('rollCard'),idle=$('rollIdle'),last=S.hist[0];
+    st.classList.remove('rays','lb','ban','shake','pulse','flash');
+    if(last){const c=BYID[last.id];fillCard(c,last.g);st.style.setProperty('--rc',rc(c));card.classList.add('show');$('rollReel').style.opacity='0.25';idle.hidden=true;}
+    else{card.classList.remove('show');$('rollReel').style.opacity='1';idle.hidden=false;idle.textContent=S.tut&&S.free>0?'Your first roll is free and guaranteed Rare or better. Press Roll!':'Press Roll to draw a style.';
+      if(!$('rollStrip').children.length)buildStrip(null);}}
+  function render(){renderWallet();renderSlots();renderCur();renderSpin();renderRes();renderPity();renderOdds();renderHist();renderStage();}
+
+  /* ---------- reel and reveal ---------- */
+  function cardHTML(c){return `<div class="xc" style="--rc:${rc(c)}"><i>${CLS[c.k].n}</i><b>${esc(c.n)}</b></div>`;}
+  function randStyle(){const k=RK[pick(BASE)],L=POOL[k];return L[Math.floor(rnd()*L.length)];}
+  const RES_AT=30;
+  function buildStrip(res){const a=[];for(let i=0;i<RES_AT+4;i++)a.push(i===RES_AT&&res?res:randStyle());$('rollStrip').innerHTML=a.map(cardHTML).join('');$('rollStrip').style.transform='translateX(0)';}
+  function fillCard(c,g){const card=$('rollCard');card.style.setProperty('--rc',rc(c));card.style.setProperty('--gl',[10,22,34,50,70][RK.indexOf(c.k)]);
+    card.innerHTML=`<span class="xr">${CLS[c.k].n}${g?' · guaranteed':''}</span><b>${esc(c.n)}</b><span>${esc(c.st)}</span><span><b style="font:inherit;font-weight:800">1:</b> ${esc(c.sa)}</span><span><b style="font:inherit;font-weight:800">G:</b> ${esc(c.sw)}</span>${stars(c.id)?`<span class="xtag">${'★'.repeat(stars(c.id))}</span>`:(S.book[c.id]===1?'<span class="xtag">NEW</span>':'')}`;}
+  const easeOut=t=>1-Math.pow(1-t,4);
+  function play(r,o,done){const st=$('rollStage'),strip=$('rollStrip'),reel=$('rollReel'),card=$('rollCard');
+    st.classList.remove('rays','lb','ban','shake','pulse','flash');card.classList.remove('show');$('rollIdle').hidden=true;$('rollBanner').textContent='';
+    st.style.setProperty('--rc',rc(r.c));reel.style.opacity='1';
+    if(reduce){reveal(r,o,done);return;}
+    buildStrip(r.c);
+    const first=strip.children[0],w=first.getBoundingClientRect().width,step=w+8,center=reel.clientWidth/2;
+    const x1=center-(8+RES_AT*step+w/2)+(rnd()-0.5)*w*0.5,T=S.quick?450:2000;
+    anim={t0:performance.now(),T,skipAt:S.quick?0:1000,skip:false};renderSpin();
+    if(anim.skipAt)setTimeout(()=>{if(anim)renderSpin();},anim.skipAt+20);
+    let lastHit=-1;
+    const tick=now=>{if(!anim)return;let p=Math.min(1,(now-anim.t0)/T);if(anim.skip)p=1;
+      const x=x1*easeOut(p);strip.style.transform=`translateX(${x}px)`;
+      const hi=Math.round((center-x-8-w/2)/step);if(hi!==lastHit){if(strip.children[lastHit])strip.children[lastHit].classList.remove('hit');if(strip.children[hi])strip.children[hi].classList.add('hit');lastHit=hi;}
+      if(p<1){requestAnimationFrame(tick);return;}
+      st.classList.add('flash');                                   /* the marker flashes the rarity colour */
+      setTimeout(()=>reveal(r,o,done),S.quick?60:180);};
+    requestAnimationFrame(tick);}
+  function reveal(r,o,done){const ti=RK.indexOf(r.c.k),st=$('rollStage'),card=$('rollCard');
+    fillCard(r.c,r.g);$('rollReel').style.opacity='0.25';
+    const hold=!reduce&&!S.quick&&ti>=2?[0,0,380,480,560][ti]:0;   /* Epic and up: the rarity banner lands first, then the card flips */
+    if(hold){$('rollBanner').textContent=['','','EPIC!','LEGENDARY!','✦ MYTHIC ✦'][ti];st.classList.add('ban');}
+    setTimeout(()=>{st.classList.remove('ban');requestAnimationFrame(()=>card.classList.add('show'));},hold);
+    if(!reduce){
+      if(ti>=1){const fl=$('rollFlash');fl.style.setProperty('--fa',[0,.25,.4,.6,.6][ti]);fl.classList.remove('go');void fl.offsetWidth;fl.classList.add('go');}
+      burst([8,26,50,90,170][ti],rc(r.c),ti);
+      if(ti>=2&&!S.quick)st.classList.add('shake');
+      if(ti>=3)st.classList.add('rays');
+      if(ti>=4)st.classList.add('lb','pulse');
+    }else if(ti>=3)st.classList.add('rays');
+    if(ti>=3)toast(`📣 Server: you rolled ${r.c.n} (${CLS[r.c.k].n})!`);
+    setTimeout(()=>{anim=null;st.classList.remove('shake','flash');done();},reduce?0:hold+(S.quick?250:480));}
+  function toast(t){const e=$('rollToast');e.textContent=t;e.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('show'),3200);}
+  /* particle burst, scaled by rarity */
+  const fx=$('rollFx'),fc=fx.getContext('2d');let PS=[],fr=0,fl=0;
+  function burst(n,col,ti){if(!n)return;const r=fx.getBoundingClientRect(),dpr=Math.min(2,window.devicePixelRatio||1);
+    if(fx.width!==Math.round(r.width*dpr)){fx.width=Math.round(r.width*dpr);fx.height=Math.round(r.height*dpr);}
+    fc.setTransform(dpr,0,0,dpr,0,0);const cx=r.width/2,cy=r.height/2,cols=[col,col,'#FFFFFF',ti>=3?'#FFE08A':col];
+    for(let i=0;i<n;i++){const a=rnd()*Math.PI*2,sp=(60+rnd()*260)*(1+ti*0.25);
+      PS.push({x:cx+Math.cos(a)*20,y:cy+Math.sin(a)*14,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-90,t:0,life:0.7+rnd()*(0.6+ti*0.25),s:2+rnd()*(3+ti),c:cols[i%4],r:rnd()*6,vr:(rnd()-0.5)*14,w:r.width,h:r.height});}
+    if(!fr){fl=performance.now();fr=requestAnimationFrame(ftick);}}
+  function ftick(now){const dt=Math.min(0.05,(now-fl)/1000);fl=now;const W=fx.width,H=fx.height;fc.setTransform(1,0,0,1,0,0);fc.clearRect(0,0,W,H);
+    const dpr=Math.min(2,window.devicePixelRatio||1);fc.setTransform(dpr,0,0,dpr,0,0);
+    PS=PS.filter(p=>(p.t+=dt)<p.life);
+    PS.forEach(p=>{p.vy+=240*dt;p.vx*=0.985;p.x+=p.vx*dt;p.y+=p.vy*dt;p.r+=p.vr*dt;fc.globalAlpha=Math.max(0,1-p.t/p.life);fc.fillStyle=p.c;
+      fc.save();fc.translate(p.x,p.y);fc.rotate(p.r);fc.fillRect(-p.s/2,-p.s/2,p.s,p.s*0.6);fc.restore();});
+    fc.globalAlpha=1;if(PS.length)fr=requestAnimationFrame(ftick);else{fr=0;fc.setTransform(1,0,0,1,0,0);fc.clearRect(0,0,W,H);}}
+
+  /* ---------- actions ---------- */
+  function spin(){
+    if(anim){if(performance.now()-anim.t0>=anim.skipAt)anim.skip=true;return;}
+    if(S.pend)decide(false,true);                                  /* rolling again keeps the current style */
+    const why=canRoll();if(why){msg(why);render();return;}
+    msg('');lastRes='';
+    const held=S.slots.filter(Boolean),r=draw(S,held),paidFree=S.free>0;
+    if(paidFree)S.free--;else S.coins-=COST;
+    S.tut=false;bump(S.p,r.ri);S.rolls++;S.book[r.c.id]=(S.book[r.c.id]||0)+1;
+    const slot=S.sel,dupAt=S.slots.indexOf(r.c.id);let o,rf=0;
+    if(dupAt>=0){o='dup';rf=REFUND[r.c.k];S.coins+=rf;}
+    else if(!S.slots[slot]){o='auto';S.slots[slot]=r.c.id;}
+    else{o='pend';S.pend={id:r.c.id,slot};}
+    S.hist.unshift({n:S.rolls,id:r.c.id,o,slot,g:r.g||'',rf});S.hist=S.hist.slice(0,10);save();
+    renderWallet(S.coins-rf);
+    play(r,o,()=>{const c=r.c,nm=`<b style="color:${rc(c)}">${esc(c.n)}</b> (${CLS[c.k].n})`,gl=r.g?` <span class="xsmall">· ${GL[r.g]}</span>`:'';
+      lastRes=o==='dup'?`Duplicate: ${nm} is already in slot ${dupAt+1}. You get ${rf} coins back and a Mastery Star (${stars(c.id)} of 5).${gl}`
+        :o==='auto'?`${nm} went into empty slot ${slot+1}.${gl} <button class="linkbtn" data-view="${c.id}" data-aw="1">▶ Watch its Awakening</button>`:'';
+      render();if(o==='pend'){const k=$('rollKeep');if(k&&dlg.contains(document.activeElement))k.focus();}});}
+  function decide(keepNew,silent){const p=S.pend;if(!p)return;const n=BYID[p.id],old=BYID[S.slots[p.slot]];
+    const h=S.hist.find(x=>x.o==='pend'&&x.id===p.id);if(h)h.o=keepNew?'new':'cur';
+    if(keepNew)S.slots[p.slot]=p.id;S.pend=null;save();
+    if(!silent){lastRes=keepNew?`Kept <b style="color:${rc(n)}">${esc(n.n)}</b> in slot ${p.slot+1}. ${old?esc(old.n)+' stays in your Style Book.':''}`:`Kept <b>${esc(old?old.n:'your style')}</b>. ${esc(n.n)} is recorded in your Style Book.`;render();$('rollSpin').focus();}}
+  const FIN=[[1,150,'champion'],[1,100,'runner-up'],[2,75,'out in Match 5'],[4,55,'out in Hot Potato'],[8,40,'out in Match 3'],[9,30,'out in Match 2'],[23,20,'out in Match 1 or the Wild Card']];
+  function playTournament(){const f=FIN[pick(FIN.map(x=>x[0]))],bonus=Math.floor(rnd()*9);S.coins+=f[1]+bonus;save();
+    render();msg(`🏆 Tournament played: ${f[2]} → +${f[1]} coins${bonus?' and +'+bonus+' performance bonus':''}.`);}
+  /* prove the odds: run the real roll code on a fresh account */
+  function simulate(n){const st={tut:false,free:0,p:{e:0,l:0,m:0}},cnt=[0,0,0,0,0];let g=0;
+    for(let i=0;i<n;i++){const d=dist(st),ri=pick(d.w);if(d.g)g++;cnt[ri]++;bump(st.p,ri);}
+    const mx=60;let h=`<p class="xsmall"><b>${num(n)} rolls</b>: ${num(g)} of them (${f1(g/n*100)}) came from a guarantee. Bar = what came out, black line = expected with guarantees. ${n<10000?'Small runs wobble a little; run it again or try 100,000.':'With this many rolls the result sits right on the expected numbers.'}</p>`;
+    RK.forEach((k,i)=>{const p=cnt[i]/n*100;h+=`<div class="xsr" style="--rc:${CLS[k].c}"><span class="xodds"><span class="xrn">${CLS[k].n}</span></span><span class="xbarw"><i style="width:${Math.min(100,p/mx*100)}%"></i><u style="left:${EFF[i]/mx*100}%"></u></span><span><b>${f2(p)}</b> <em>(${num(cnt[i])}) · exp. ${f1(EFF[i])} · base ${BASE[i]}%</em></span></div>`;});
+    $('rollSimOut').innerHTML=h;}
+
+  /* ---------- events ---------- */
+  $('rollSpin').onclick=spin;
+  $('rollStage').addEventListener('click',()=>{if(anim&&performance.now()-anim.t0>=anim.skipAt)anim.skip=true;});
+  $('rollQuick').checked=S.quick;$('rollQuick').onchange=e=>{S.quick=e.target.checked;save();};
+  $('rollPlay').onclick=()=>{if(!anim)playTournament();};
+  $('rollAdd').onclick=()=>{if(anim)return;S.coins+=500;save();render();msg('+500 demo coins.');};
+  $('rollSim').onclick=()=>simulate(1000);$('rollSimBig').onclick=()=>simulate(100000);
+  $('rollReset').onclick=e=>{if(anim)return;const b=e.currentTarget;
+    if(!resetArm){resetArm=setTimeout(()=>{resetArm=0;b.textContent='↺ Reset the demo';},3000);b.textContent='Click again to reset';return;}
+    clearTimeout(resetArm);resetArm=0;b.textContent='↺ Reset the demo';S=fresh();save();lastRes='';$('rollStrip').innerHTML='';$('rollSimOut').innerHTML='';$('rollQuick').checked=false;render();msg('The demo was reset: 300 coins and a free first roll.');};
+  dlg.addEventListener('click',e=>{const t=e.target.closest('button');if(!t||!dlg.contains(t))return;
+    if(t.id==='rollKeep'){decide(true);return;}if(t.id==='rollDiscard'){decide(false);return;}
+    if(t.dataset.view){if(anim)return;backToRoll=true;D.view?D.view(t.dataset.view,!!t.dataset.aw):$('charsBtn').click();return;}
+    if(anim)return;
+    if(t.dataset.slot!=null){S.sel=+t.dataset.slot;save();msg('');render();return;}
+    if(t.dataset.lock!=null){const i=+t.dataset.lock;S.locks[i]=!S.locks[i];save();msg('');render();const nb=dlg.querySelector(`[data-lock="${i}"]`);if(nb)nb.focus();}});
+  dlg.addEventListener('keydown',e=>{if(anim||e.altKey||e.ctrlKey||e.metaKey||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+    if(['1','2','3'].includes(e.key)){S.sel=+e.key-1;save();msg('');render();}});
+  $('charRollLink').onclick=()=>$('rollBtn').click();
+  /* coming back from the 3D viewer reopens the roll */
+  const chars=$('chars');
+  new MutationObserver(()=>{if(chars.hidden&&backToRoll){backToRoll=false;setTimeout(()=>{if(document.querySelector('.rules:not([hidden])'))return;$('rollBtn').click();},0);}else if(!chars.hidden&&!dlg.hidden)backToRoll=false;}).observe(chars,{attributes:true,attributeFilter:['hidden']});
+  new MutationObserver(()=>{if(!dlg.hidden){render();}}).observe(dlg,{attributes:true,attributeFilter:['hidden']});
+  render();
 })();
 </script>
 <script>
